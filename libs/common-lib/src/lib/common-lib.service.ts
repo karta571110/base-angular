@@ -4,6 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CommonLibService {
+  ab: any;
+
+  bs: any;
+
   constructor() {
     console.log('CommonLibService');
   }

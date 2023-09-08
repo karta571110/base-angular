@@ -17,7 +17,6 @@ yarn-error.log
 .classpath
 .c9/
 *.launch
-.settings/
 * .sublime-workspace
 
 # Visual Studio Code
@@ -29,7 +28,7 @@ yarn-error.log
 . 歷史/*
 
 # 其他
-/.angular/cache
+/.angular
 .sass-cache/
 /connect.lock
 /coverage
