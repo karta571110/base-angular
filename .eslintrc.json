@@ -25,7 +25,8 @@
         "plugin:import/recommended",
         "plugin:import/typescript",
         "plugin:jsdoc/recommended-typescript",
-        "prettier"
+        "prettier",
+        "plugin:@cspell/recommended"
       ],
       "rules": {
         "lines-between-class-members": [
@@ -350,7 +351,10 @@
         // jsdoc
         "jsdoc/require-param-type": 0,
         "jsdoc/require-returns-type": 0,
-        "jsdoc/require-description": 1
+        "jsdoc/require-description": 1,
+
+        // @cspell
+        "@cspell/spellchecker": ["error", { "checkComments": false }]
       }
     },
     {

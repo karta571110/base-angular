@@ -4,6 +4,11 @@
     "source.fixAll.eslint": true,
     "source.organizeImports": true
   },
+  "files.eol": "\n",
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "git.ignoreLimitWarning": true,
   "eslint.validate": ["javascript"],
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -29,7 +34,6 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.formatOnSave": true,
   "files.associations": {
     "*.json": "jsonc"
   }
