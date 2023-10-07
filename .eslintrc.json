@@ -24,7 +24,8 @@
         "plugin:prettier/recommended",
         "plugin:import/recommended",
         "plugin:import/typescript",
-        "plugin:jsdoc/recommended-typescript"
+        "plugin:jsdoc/recommended-typescript",
+        "prettier"
       ],
       "rules": {
         "lines-between-class-members": [
@@ -363,7 +364,8 @@
         "prettier/prettier": [
           "error",
           {
-            "parser": "angular"
+            "parser": "angular",
+            "singleQuote": true
           }
         ]
       }
