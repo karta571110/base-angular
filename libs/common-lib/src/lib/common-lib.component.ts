@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-common-lib',
+  selector: 'common-lib',
   template: ` <p>common-lib works!</p> `,
   styles: [],
 })

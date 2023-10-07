@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed, type ComponentFixture } from '@angular/core/testing';
 
 import { CommonLibComponent } from './common-lib.component';
 
 describe('CommonLibComponent', () => {
-  let component: CommonLibComponent;
-  let fixture: ComponentFixture<CommonLibComponent>;
+  let component: CommonLibComponent,
+    fixture: ComponentFixture<CommonLibComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
