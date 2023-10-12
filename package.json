@@ -17,7 +17,8 @@
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "prettier": "npx prettier --write .",
-    "cspell:check": "cspell \"**/*.{js,json,yaml,ts,css,scss,md}\" --no-progress --show-suggestions --show-context --cache --gitignore"
+    "cspell:check": "cspell \"**/*.{js,json,yaml,ts,css,scss,md}\" --no-progress --show-suggestions --show-context --cache --gitignore",
+    "stylelint:fix": "npx stylelint '**/*.{scss,css}'"
   },
   "private": true,
   "dependencies": {
@@ -63,8 +64,14 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "ng-packagr": "^16.2.0",
+    "postcss-lit": "^1.1.0",
     "prettier": "^3.0.2",
     "prettier-eslint": "^15.0.1",
+    "stylelint": "^15.10.3",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-sass-guidelines": "^10.0.0",
+    "stylelint-config-standard-scss": "^11.0.0",
+    "stylelint-order": "^6.0.3",
     "typescript": "~5.1.6"
   }
 }
