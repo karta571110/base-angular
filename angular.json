@@ -28,6 +28,9 @@
               "apps/base-app/src/assets"
             ],
             "styles": ["apps/base-app/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs", "apps/base-app"]
+            },
             "scripts": []
           },
           "configurations": {

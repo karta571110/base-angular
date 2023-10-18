@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use './sass/vendors/bootstrap';
+@use './sass/base';
+@use './sass/utils';
+@use './sass/utils/helpers';
+@use './sass/components';

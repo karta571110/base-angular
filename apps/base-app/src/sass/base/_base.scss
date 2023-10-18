@@ -1,0 +1,82 @@
+// This file contains very basic styles.
+
+@use 'common/src/sass/utils' as common-u;
+
+@use 'fonts';
+
+// @use 'common/src/sass/utils' as common-u;
+html {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.fixWindow {
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  margin: 0 !important;
+  width: 100%;
+  height: 100%;
+  color: common-u.$v-text-color;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+.row > * {
+  padding: 0 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: common-u.$v-text-color;
+
+  &:hover {
+    color: common-u.$v-text-color;
+  }
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: unset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.was-validated .form-control:valid,
+.form-control.is-valid {
+  border-color: common-u.$v-text-white;
+  padding-right: 0.75rem;
+  background-image: none;
+}
+
+.was-validated .form-select:valid,
+.form-select.is-valid {
+  border-color: #ced4da;
+}
+
+.was-validated .form-select:valid:not([multiple], [size]),
+.was-validated .form-select:valid:not([multiple])[size='1'],
+.form-select.is-valid:not([multiple], [size]),
+.form-select.is-valid:not([multiple])[size='1'] {
+  padding-right: 0.5rem !important;
+  background-size: 16px 12px, 0 !important;
+}
