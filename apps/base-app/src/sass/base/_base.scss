@@ -78,5 +78,7 @@ input:-webkit-autofill:active {
 .form-select.is-valid:not([multiple], [size]),
 .form-select.is-valid:not([multiple])[size='1'] {
   padding-right: 0.5rem !important;
-  background-size: 16px 12px, 0 !important;
+  background-size:
+    16px 12px,
+    0 !important;
 }

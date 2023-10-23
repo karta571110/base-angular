@@ -29,12 +29,14 @@ yarn-error.log
 
 # 其他
 /.angular
+/.prettierignore
 .sass-cache/
 /connect.lock
 /coverage
 /libpeerconnection.log
 testem.log
 /typings
+/.husky
 
 # 系統文件
 .DS_Store

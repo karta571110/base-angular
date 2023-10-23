@@ -2,7 +2,8 @@
 
 @use 'mixins' as m;
 
-$_rules: [[ml, margin-left], [mt, margin-top], [mb, margin-bottom], [mr, margin-right]];
+$_rules: [[ml, margin-left], [mt, margin-top], [mb, margin-bottom], [mr,
+  margin-right]];
 
 // generate spacing by $-rules
 @each $item in $_rules {

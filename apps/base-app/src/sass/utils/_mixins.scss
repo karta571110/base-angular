@@ -1,10 +1,14 @@
 // Sass Mixins
-
 @use 'sass:list';
-
 @mixin generate-spacing($prefix, $property) {
   // List of sizes to generate for each
-  $sizes: [0, 0.25, 0.5, 1, 1.5, 3, 6];
+  $sizes:
+    [ 0,
+    0.25 0.5,
+    1,
+    1.5,
+    3,
+    6];
 
   // Spacing to multiply the sizes by
   $spacing: 1rem;
@@ -20,49 +24,62 @@
     }
   }
 }
+
 @mixin gradient-border($color1, $color2) {
   border: 1px solid transparent;
   border-image: linear-gradient(122.61deg, $color1 25.76%, $color2 85.21%);
   border-image-slice: 1;
 }
+
 @mixin gradient-bg($color1, $color2) {
-  -webkit-background: linear-gradient(122.61deg, $color1 25.76%, $color2 85.21%);
+  -webkit-background: linear-gradient(
+    122.61deg,
+    $color1 25.76%,
+    $color2 85.21%
+  );
   -moz-background: linear-gradient(122.61deg, $color1 25.76%, $color2 85.21%);
   background: linear-gradient(122.61deg, $color1 25.76%, $color2 85.21%);
 }
+
 @mixin gradient-text($color1, $color2) {
   @include gradient-bg($color1, $color2);
 
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 @mixin xx-large {
-  @media (max-width: 1550px) {
+  @media (width <=1550px) {
     @content;
   }
 }
+
 @mixin x-large {
-  @media (max-width: 1200px) {
+  @media (width <=1200px) {
     @content;
   }
 }
+
 @mixin large {
-  @media (max-width: 991px) {
+  @media (width <=991px) {
     @content;
   }
 }
+
 @mixin pad {
-  @media (max-width: 768px) {
+  @media (width <=768px) {
     @content;
   }
 }
+
 @mixin small {
-  @media (max-width: 640px) {
+  @media (width <=640px) {
     @content;
   }
 }
+
 @mixin mobile {
-  @media (max-width: 376px) {
+  @media (width <=376px) {
     @content;
   }
 }

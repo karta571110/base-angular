@@ -1,0 +1,27 @@
+{
+  "extends": ["@commitlint/config-angular"],
+  "rules": {
+    "type-enum": [
+      2,
+      "always",
+      [
+        "ci",
+        "chore",
+        "core",
+        "docs",
+        "feat",
+        "fix",
+        "perf",
+        "refactor",
+        "revert",
+        "style",
+        "test"
+      ]
+    ],
+    "scope-enum": [2, "always", ["cms", "common", "customer-portal"]],
+    "header-max-length": [2, "always", 72],
+    "subject-max-length": [2, "always", 50],
+    "body-min-length": [2, "always", 20],
+    "body-max-line-length": [2, "always", 72]
+  }
+}
