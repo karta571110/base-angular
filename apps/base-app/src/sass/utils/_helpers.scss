@@ -1,11 +1,2 @@
 // Class & placeholders helpers
-
 @use 'mixins' as m;
-
-$_rules: [[ml, margin-left], [mt, margin-top], [mb, margin-bottom], [mr,
-  margin-right]];
-
-// generate spacing by $-rules
-@each $item in $_rules {
-  @include m.generate-spacing(nth($item, 1), nth($item, 2));
-}
