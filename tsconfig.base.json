@@ -5,7 +5,9 @@
     "rootDir": ".",
     "baseUrl": "./",
     "paths": {
-      "@common-lib": ["dist/common-lib"]
+      "@common-lib": ["libs/common-lib"],
+      "@common/sdk": ["libs/common/sdk"],
+      "@common/sdk/*": ["libs/common/sdk/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

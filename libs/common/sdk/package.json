@@ -1,5 +1,5 @@
 {
-  "name": "common-lib",
+  "name": "@common/sdk",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^16.2.0",
@@ -7,5 +7,6 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "sideEffects": false
 }

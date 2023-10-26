@@ -1,5 +1,0 @@
-{
-  "*.{js,ts}": ["npm run lint:fix"],
-  "*.{css,scss}": ["npm run stylelint:fix"],
-  "*": ["npm run prettier", "npm run cspell:check"]
-}
