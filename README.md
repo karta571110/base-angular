@@ -1,4 +1,4 @@
-<h1>第一金人壽 E-agent 理專專區</h1>
+<h1>基底專案</h1>
 
 <h2>目次</h2>
 <!-- TOC -->
@@ -9,6 +9,7 @@
   - [3.1. 安裝 Node.js](#31-安裝-nodejs)
     - [3.1.1. volta 常用指令](#311-volta-常用指令)
     - [3.1.2. npm 常用指令](#312-npm-常用指令)
+- [4. 建立元件庫](#4-建立元件庫)
 
 ## 1. 使用技術
 
@@ -94,3 +95,11 @@
 - `npm ci` : 先清除 `node_modules` 再依照 `package-lock.json` 中鎖定的版號安裝專案下的套件。
 - `npm uninstall <name>` : 解除安裝 Node.js 套件。
 - `npm run <name>` : 執行 `package.json` 裡的 `scripts`。
+
+# 4. 常用建立檔案指令
+
+建立元件庫'
+ng generate library @common/sdk --standalone --project-root=libs/common/sdk
+
+建立裝飾器
+ng generate directive control --standalone --path libs/common/sdk/form/src/directives/control --project @common/sdk
