@@ -1,11 +1,16 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "extends": "./tsconfig.json",
-
   "compilerOptions": {
-    "composite": true,
     "outDir": "../../out-tsc/app"
   },
   "files": ["src/main.ts"],
-  "include": ["src/**/*.d.ts"]
+  "include": ["src/**/*.d.ts"],
+  "exclude": [
+    "jest.config.ts",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/*.stories.ts",
+    "**/*.stories.js"
+  ]
 }
