@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-// eslint-disable-next-line import/no-unresolved
-// eslint-disable-next-line import/no-unresolved
-// import { ControlDirective } from '@common/sdk/form';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { ControlDirective } from '@common/sdk/form';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
