@@ -1,1 +1,2 @@
-export * from './src/button.component';
+export * from './src/directives';
+export * from './src/models';
