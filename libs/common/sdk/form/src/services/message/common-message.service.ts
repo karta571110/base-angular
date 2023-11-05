@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+
 import { of, shareReplay, switchMap, tap } from 'rxjs';
 import { type Observable } from 'rxjs/internal/Observable';
 import { EMPTY } from 'rxjs/internal/observable/empty';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { type MessageData } from '../../models';
-import { COMMON_MESSAGE_API_URL_TOKEN } from '../../token/common-message-api-url.token';
+import { COMMON_MESSAGE_API_URL_TOKEN } from '../../token';
 
 @Injectable({
   providedIn: 'root',

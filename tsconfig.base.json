@@ -9,7 +9,8 @@
       "@common/sdk/*": ["libs/common/sdk/*"],
       "@common/sdk": ["libs/common/sdk/src/index.ts"],
       //寫成絕對路徑可以準確找到檔案
-      "@common/sdk/form": ["libs/common/sdk/form/index.ts"]
+      "@common/sdk/form": ["libs/common/sdk/form/index.ts"],
+      "@common/sdk/i18n": ["libs/common/sdk/i18n/index.ts"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
