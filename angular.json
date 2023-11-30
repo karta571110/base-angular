@@ -4,6 +4,15 @@
   "newProjectRoot": ".",
   "projects": {
     "base-app": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "zh-TW": {
+            "translation": "apps/base-app/src/locale/messages.zh.json",
+            "baseHref": "/zh/"
+          }
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,6 +26,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": ["en-US"],
             "outputPath": "dist/base-app",
             "index": "apps/base-app/src/index.html",
             "main": "apps/base-app/src/main.ts",
