@@ -5,11 +5,6 @@ import { provideClientHydration } from '@angular/platform-browser';
 
 const routes: Routes = [
   {
-    path: '',
-    title: 'chat',
-    loadComponent: () => import('./app.component').then(m => m.AppComponent),
-  },
-  {
     path: '**',
     redirectTo: '',
   },
