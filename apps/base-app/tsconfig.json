@@ -1,6 +1,11 @@
 // To learn more about this file see: https://angular.io/config/tsconfig.
 {
   "extends": "../../tsconfig.base.json",
+  "references": [
+    {
+      "path": "./tsconfig.editor.json"
+    }
+  ],
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
     "types": []

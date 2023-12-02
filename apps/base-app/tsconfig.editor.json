@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["**/*.ts"],
+  "compilerOptions": {
+    "rootDir": "../../",
+    "baseUrl": "../../",
+    "composite": true,
+    "declaration": true,
+    "types": ["jasmine"]
+  }
+}
