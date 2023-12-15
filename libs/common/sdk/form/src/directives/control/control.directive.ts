@@ -15,11 +15,11 @@ import {
   type ValidationErrors,
   type ValidatorFn,
 } from '@angular/forms';
-import { type ValidatorErrorMessage } from '@common/sdk/form';
 import isEmpty from 'lodash-es/isEmpty';
 import isNull from 'lodash-es/isNull';
 import isString from 'lodash-es/isString';
 import { type Subscription } from 'rxjs/internal/Subscription';
+import { type ValidatorErrorMessage } from '../../models';
 
 @Directive({
   selector: 'input[commonControl]',
