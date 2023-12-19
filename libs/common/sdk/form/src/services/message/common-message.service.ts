@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 
+import { TranslocoService } from '@ngneat/transloco';
 import { of, shareReplay, switchMap, tap } from 'rxjs';
 import { type Observable } from 'rxjs/internal/Observable';
 import { EMPTY } from 'rxjs/internal/observable/empty';
@@ -15,6 +16,8 @@ export class CommonMessageService<
   customMessageDataT extends Record<string, string> = MessageData,
 > {
   initMessage$: Observable<customMessageDataT>;
+
+  private _translocoService = inject(TranslocoService);
 
   // TODO: i18n
   private readonly _defaultMessage: MessageData = {

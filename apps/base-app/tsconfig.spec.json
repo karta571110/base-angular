@@ -5,5 +5,10 @@
     "outDir": "../../out-tsc/spec",
     "types": ["jasmine"]
   },
-  "include": ["src/**/*.ts", "src/**/*.spec.ts", "src/**/*.d.ts"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts",
+    "../../libs/common/sdk/i18n/src/services/translate/transloco-loader.service.ts"
+  ]
 }
