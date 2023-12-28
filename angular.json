@@ -35,13 +35,19 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "apps/base-app/src/favicon.ico",
-              "apps/base-app/src/assets"
+              "apps/base-app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/common/sdk/src/assets",
+                "output": "assets/"
+              }
             ],
             "styles": ["apps/base-app/src/styles.scss"],
             "stylePreprocessorOptions": {
               "includePaths": ["libs", "apps/base-app"]
             },
-            "scripts": []
+            "scripts": [],
+            "outputHashing": "all"
           },
           "configurations": {
             "production": {

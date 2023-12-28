@@ -1,32 +1,30 @@
-import { isDevMode, type ApplicationConfig } from '@angular/core';
-import { provideRouter, type Routes } from '@angular/router';
+import { type ApplicationConfig } from '@angular/core';
+import { type Routes } from '@angular/router';
 
-import { provideHttpClient } from '@angular/common/http';
-import { provideClientHydration } from '@angular/platform-browser';
-import { TranslocoLoaderService } from '@common/sdk/i18n';
-import { provideTransloco } from '@ngneat/transloco';
+import { getTranslocoProvide } from '@common/sdk/i18n';
 
 const routes: Routes = [
-  {
-    path: '**',
-    redirectTo: '',
-  },
-];
+    {
+      path: '**',
+      redirectTo: '',
+    },
+  ],
+  supportLangs = [
+    {
+      id: 'zh',
+      label: '繁體中文',
+    },
+    {
+      id: 'en',
+      label: 'English',
+    },
+  ];
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
-    provideClientHydration(),
-    provideHttpClient(),
-    provideTransloco({
-      config: {
-        availableLangs: ['zh'],
-        defaultLang: 'zh',
-        // Remove this option if your application doesn't support changing language in runtime.
-        reRenderOnLangChange: true,
-        prodMode: !isDevMode(),
-      },
-      loader: TranslocoLoaderService,
+    ...getTranslocoProvide(routes, {
+      availableLangs: supportLangs,
+      defaultLang: localStorage.getItem('lang') ?? 'en',
     }),
   ],
 };

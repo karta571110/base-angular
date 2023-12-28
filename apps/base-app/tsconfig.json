@@ -1,6 +1,8 @@
 // To learn more about this file see: https://angular.io/config/tsconfig.
 {
   "extends": "../../tsconfig.base.json",
+  "files": [],
+  "include": [],
   "references": [
     {
       "path": "./tsconfig.app.json"
@@ -25,7 +27,5 @@
       "@common/sdk/i18n": ["libs/common/sdk/i18n/index.ts"]
     },
     "types": []
-  },
-  "files": ["src/main.ts"],
-  "include": ["src/**/*.d.ts"]
+  }
 }

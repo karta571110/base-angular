@@ -1,0 +1,5 @@
+{
+  "required": "請輸入{{fieldName}}",
+  "regex-pattern-error": "{{fieldName}}格式錯誤",
+  "no-message": "無此訊息"
+}

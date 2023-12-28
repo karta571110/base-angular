@@ -12,7 +12,7 @@ export class TranslocoLoaderService implements TranslocoLoader {
 
   private _i18nFilePath = inject(COMMON_FILE_PATH_TOKEN);
 
-  getTranslation<T extends Translation>(lang: 'en' | 'zh'): Observable<T> {
+  getTranslation<T extends Translation>(lang: string): Observable<T> {
     return this._http.get<T>(`${this._i18nFilePath}/${lang}.json`);
   }
 }

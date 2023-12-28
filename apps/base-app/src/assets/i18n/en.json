@@ -1,1 +1,5 @@
-{}
+{
+  "sdkForm": {
+    "required": "Please enter {{fieldName}}"
+  }
+}

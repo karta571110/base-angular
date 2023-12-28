@@ -1,0 +1,5 @@
+{
+  "required": "Please enter {{fieldName}}",
+  "regex-pattern-error": "{{fieldName}} field's format is incorrect",
+  "no-message": "No message"
+}

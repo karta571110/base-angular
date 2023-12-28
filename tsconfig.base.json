@@ -6,7 +6,6 @@
     "baseUrl": ".",
     "paths": {
       "@common-lib": ["libs/common-lib"],
-      "@common/sdk/*": ["libs/common/sdk/*"],
       "@common/sdk": ["libs/common/sdk/src/index.ts"],
       //寫成絕對路徑可以準確找到檔案
       "@common/sdk/form": ["libs/common/sdk/form/index.ts"],
