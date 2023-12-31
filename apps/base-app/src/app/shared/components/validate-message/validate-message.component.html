@@ -1,3 +1,4 @@
-<p *ngFor="let text of control | errorMessage">
+<p *ngFor="let text of control | errorMessage | async">
   {{ text }}
 </p>
+<!-- {{ 'sdkForm.required' | transloco }} -->

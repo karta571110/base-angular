@@ -16,4 +16,13 @@ export class AppComponent {
   a = new FormControl('d', {
     updateOn: 'change',
   });
+
+  constructor() {
+    this.a.setErrors({
+      required: {
+        fieldName: 'a欄位',
+      },
+    });
+    console.log(this.a);
+  }
 }
