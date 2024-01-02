@@ -18,7 +18,7 @@
         "test"
       ]
     ],
-    "scope-enum": [2, "always", ["cms", "common", "customer-portal"]],
+    "scope-enum": [2, "always", ["base-app", "common"]],
     "header-max-length": [2, "always", 72],
     "subject-max-length": [2, "always", 50],
     "body-min-length": [2, "always", 20],
