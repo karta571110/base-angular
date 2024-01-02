@@ -10,10 +10,12 @@
     - [3.1.1. volta 常用指令](#311-volta-常用指令)
     - [3.1.2. npm 常用指令](#312-npm-常用指令)
 - [4. 建立元件庫](#4-建立元件庫)
+- [5. i18n國際化語系](<#5-i18n國際化語系(@common/sdk/i18n)>)
+- [6. Angular響應式表單整合(@common/sdk/form)](<#6-Angular響應式表單整合(@common/sdk/form)>)
 
 ## 1. 使用技術
 
-- [Angular - v14](https://angular.io)
+- [Angular - v17](https://angular.io)
   - 前端框架
 - [TypeScript](https://www.typescriptlang.org)
   - 靜態型別檢查
@@ -21,12 +23,6 @@
   - Reactive Extensions Library
 - [SCSS](https://sass-lang.com)
   - CSS Preprocessor
-- [Bootstrap v5.2](https://getbootstrap.com/docs/5.2)
-  - CSS framework
-- [ng-bootstrap v13](https://ng-bootstrap.github.io/releases/13.x/#/getting-started)
-  - Bootstrap widgets for angular
-- [Nx](https://nx.dev/)
-  - Monorepo Build System
 - [StoryBook](https://storybook.js.org/docs/angular/get-started/introduction)
   - 構建和測試 UI 元件的 open source tools
 
@@ -103,3 +99,53 @@ ng generate library @common/sdk --standalone --project-root=libs/common/sdk
 
 建立裝飾器
 ng generate directive control --standalone --path libs/common/sdk/form/src/directives/control --project @common/sdk
+
+# 5. i18n國際化語系(@common/sdk/i18n)
+
+- [i18n](https://ngneat.github.io/transloco/docs/getting-started/installation)
+  - 多語系套件
+
+## [模板翻譯](https://ngneat.github.io/transloco/docs/translation-in-the-template)
+
+使用以下功能前需先導入i18n模組**TranslocoModule**
+
+### 管道 (Pipe)
+
+```html
+<span>{{ 'i18nKey' | transloco }}</span>
+```
+
+### 裝飾器 (Directive)
+
+```html
+<span transloco="i18nKey"></span>
+```
+
+### 語法糖
+
+```html
+<ng-container *transloco="let t">
+  <p>{{ t('i18nKey') }}</p>
+
+  <example-component [title]="t('i18nKey')"></example-component>
+</ng-container>
+```
+
+# 6. Angular響應式表單整合(@common/sdk/form)
+
+## 裝飾器 (Directive)
+
+**ControlDirective**
+
+使用 **hostDirectives** 綁定在表單元件
+
+```typescript
+@Component({
+  selector: 'app-example-input',
+  ...
+  standalone: true,
+  imports: [ReactiveFormsModule, ControlDirective],
+  hostDirectives: [ControlDirective],
+})
+export class ExampleInputComponent<ValueT> {}
+```

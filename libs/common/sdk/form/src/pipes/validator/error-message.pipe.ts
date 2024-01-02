@@ -25,7 +25,7 @@ import { of } from 'rxjs/internal/observable/of';
 import { type MessageData, type ValidatorErrorMessage } from '../../models';
 
 @Pipe({
-  name: 'errorMessage',
+  name: 'errorMessages$',
   standalone: true,
 })
 export class ErrorMessagePipe<
