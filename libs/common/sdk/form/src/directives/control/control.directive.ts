@@ -154,7 +154,7 @@ export class ControlDirective<ValueT>
     if (isString(value) && !this.regex.every(regex => regex.test(value))) {
       return {
         'regex-pattern-error': {
-          fieldName: '',
+          fieldName: this.fieldName,
         },
       };
     }
