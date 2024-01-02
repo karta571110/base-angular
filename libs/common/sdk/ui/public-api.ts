@@ -1,3 +1,4 @@
+export * from './src/components';
 export * from './src/services';
 // export * from './src/directives';
 // export * from './src/models';
