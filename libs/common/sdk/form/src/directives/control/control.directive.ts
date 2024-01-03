@@ -66,7 +66,6 @@ export class ControlDirective<ValueT>
 
   ngOnInit(): void {
     this.control = this._ngControl.control;
-    console.log(this.control);
     if (!isNull(this.control)) {
       this._valueChangeSub = this.control.valueChanges.subscribe(value => {
         this.valueChange.emit(value);

@@ -1,5 +1,7 @@
 import {
   ChangeDetectorRef,
+  Inject,
+  Optional,
   Pipe,
   inject,
   type OnDestroy,
@@ -22,7 +24,7 @@ import { forkJoin, switchMap } from 'rxjs';
 import { type Observable } from 'rxjs/internal/Observable';
 import { type Subscription } from 'rxjs/internal/Subscription';
 import { of } from 'rxjs/internal/observable/of';
-import { type MessageData, type ValidatorErrorMessage } from '../../models';
+import { type MessageData, type ValidatorErrorMessage } from '../../../models';
 
 @Pipe({
   name: 'errorMessages$',
@@ -42,8 +44,6 @@ export class ErrorMessagePipe<
       this._cdr.markForCheck();
     });
 
-  private _i18nScope: OrArray<TranslocoScope> = inject(TRANSLOCO_SCOPE);
-
   private _loadEvent: Subscription | null =
     this._translocoService.events$.subscribe(e => {
       if (e.type === 'translationLoadSuccess') {
@@ -51,9 +51,13 @@ export class ErrorMessagePipe<
       }
     });
 
-  transform(control: AbstractControl | null): Observable<string[]> {
-    console.log('trans');
+  constructor(
+    @Optional()
+    @Inject(TRANSLOCO_SCOPE)
+    private _i18nScope?: OrArray<TranslocoScope> | null
+  ) {}
 
+  transform(control: AbstractControl | null): Observable<string[]> {
     if (isNull(control)) return of([]);
     const errors =
       control.errors as ValidatorErrorMessage<customMessageDataT> | null;
@@ -118,7 +122,9 @@ export class ErrorMessagePipe<
     );
   }
 
-  private _isProviderScope(value: TranslocoScope): value is ProviderScope {
+  private _isProviderScope(
+    value: TranslocoScope | null
+  ): value is ProviderScope {
     return !isString(value);
   }
 

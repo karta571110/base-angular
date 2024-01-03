@@ -1,1 +1,1 @@
-export * from './validator/error-message.pipe';
+export * from './validator/error-message/error-message.pipe';

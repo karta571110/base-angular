@@ -19,10 +19,11 @@
     "paths": {
       "@common-lib": ["libs/common-lib/src/index.ts"],
       "@common": ["libs/common/src/index.ts"],
-      "@common/sdk": ["libs/common/sdk/src/index.ts"]
+      "@common/sdk": ["libs/common/sdk/src/index.ts"],
+      "@common/sdk/i18n": ["libs/common/sdk/i18n/index.ts"]
     }
   },
-  "exclude": ["**/*.spec.ts"],
+  "exclude": [],
   "files": [],
   "include": []
 }
