@@ -2,7 +2,6 @@ import { provideHttpClient } from '@angular/common/http';
 
 import { isDevMode, type EnvironmentProviders, type Type } from '@angular/core';
 import { provideClientHydration } from '@angular/platform-browser';
-import { provideRouter, type Routes } from '@angular/router';
 import { type PickObj } from '@common/sdk';
 import {
   provideTransloco,
@@ -18,12 +17,10 @@ import { TranslocoLoaderService } from '../services';
  * @returns transloco 的 provider
  */
 export function getTranslocoProvide(
-  routes: Routes,
   config?: PickObj<TranslocoOptions, 'config'>,
   loader: Type<TranslocoLoader> = TranslocoLoaderService
 ): (EnvironmentProviders | EnvironmentProviders[])[] {
   return [
-    provideRouter(routes),
     provideClientHydration(),
     provideHttpClient(),
     provideTransloco({

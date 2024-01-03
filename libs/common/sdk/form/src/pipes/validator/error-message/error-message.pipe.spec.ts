@@ -4,7 +4,7 @@ import { ErrorMessagePipe } from './error-message.pipe';
 
 describe('ErrorMessagePipe', () => {
   TestBed.configureTestingModule({
-    providers: [...getTranslocoProvide([])],
+    providers: [...getTranslocoProvide()],
   });
   it('create an instance', () => {
     const testFn = (): void => {

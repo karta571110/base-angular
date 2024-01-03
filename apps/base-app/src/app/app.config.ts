@@ -1,5 +1,5 @@
 import { type ApplicationConfig } from '@angular/core';
-import { type Routes } from '@angular/router';
+import { provideRouter, type Routes } from '@angular/router';
 
 import { getTranslocoProvide } from '@common/sdk/i18n';
 
@@ -22,7 +22,8 @@ const routes: Routes = [
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    ...getTranslocoProvide(routes, {
+    provideRouter(routes),
+    ...getTranslocoProvide({
       availableLangs: supportLangs,
       defaultLang: localStorage.getItem('lang') ?? 'en',
     }),
