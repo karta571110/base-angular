@@ -244,7 +244,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "apps/pwa-app/src/favicon.ico",
-              "apps/pwa-app/src/assets"
+              "apps/pwa-app/src/assets",
+              "apps/pwa-app/src/manifest.webmanifest"
             ],
             "styles": ["apps/pwa-app/src/styles.scss"],
             "scripts": []
@@ -263,7 +264,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "serviceWorker": "apps/pwa-app/ngsw-config.json"
             },
             "development": {
               "optimization": false,
@@ -299,7 +301,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "apps/pwa-app/src/favicon.ico",
-              "apps/pwa-app/src/assets"
+              "apps/pwa-app/src/assets",
+              "apps/pwa-app/src/manifest.webmanifest"
             ],
             "styles": ["apps/pwa-app/src/styles.scss"],
             "scripts": []

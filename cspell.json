@@ -64,6 +64,9 @@
     "wordcount",
     "wordprocessingml",
     "esbenp",
-    "keystyle"
+    "keystyle",
+    "ngsw",
+    "apng",
+    "webp"
   ]
 }

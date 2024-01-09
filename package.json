@@ -19,7 +19,9 @@
     "prettier": "npx prettier --write .",
     "cspell:check": "cspell \"**/*.{js,json,yaml,ts,css,scss,md}\" --no-progress --show-suggestions --show-context --cache --gitignore",
     "stylelint:fix": "npx stylelint '**/*.{scss,css}' --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build:pwa-app:watch": "ng build --project pwa-app --watch",
+    "start:pwa-app": "npx http-server -p 8080 -c-1 dist/pwa-app/browser"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +33,7 @@
     "@angular/platform-browser": "^17.0.5",
     "@angular/platform-browser-dynamic": "^17.0.5",
     "@angular/router": "^17.0.5",
+    "@angular/service-worker": "^17.0.5",
     "@ngneat/transloco": "^6.0.4",
     "lodash-es": "^4.17.21",
     "rxjs": "~7.5.0",
@@ -40,11 +43,11 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.0.5",
-    "@angular-eslint/builder": "17.1.1",
-    "@angular-eslint/eslint-plugin": "17.1.1",
-    "@angular-eslint/eslint-plugin-template": "17.1.1",
-    "@angular-eslint/schematics": "17.1.1",
-    "@angular-eslint/template-parser": "17.1.1",
+    "@angular-eslint/builder": "17.2.0",
+    "@angular-eslint/eslint-plugin": "17.2.0",
+    "@angular-eslint/eslint-plugin-template": "17.2.0",
+    "@angular-eslint/schematics": "17.2.0",
+    "@angular-eslint/template-parser": "17.2.0",
     "@angular/cli": "~17.0.5",
     "@angular/compiler-cli": "^17.0.5",
     "@angular/localize": "^17.0.5",
@@ -65,6 +68,7 @@
     "eslint-plugin-jsdoc": "^46.8.2",
     "eslint-plugin-prettier": "^5.0.0",
     "file-entry-cache": "^7.0.0",
+    "http-server": "^14.1.1",
     "husky": "^8.0.3",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
