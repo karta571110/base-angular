@@ -149,3 +149,27 @@ ng generate directive control --standalone --path libs/common/sdk/form/src/direc
 })
 export class ExampleInputComponent<ValueT> {}
 ```
+
+# 7. 專案啟動
+
+## Base-App
+
+啟動指令
+
+```cmd=
+npm run start:base-app
+```
+
+## Pwa-App
+
+1. 等待下列建置指令跑完
+
+```cmd=
+npm run build:pwa-app:watch
+```
+
+2. 啟動指令
+
+```cmd=
+npm run start:pwa-app
+```
