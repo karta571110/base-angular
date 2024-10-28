@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injector, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { CommonLoaderComponent } from '@common/sdk/ui';
@@ -14,6 +14,8 @@ import { ValidateMessageComponent } from './shared/components/validate-message/v
 export class AppComponent {
   title = 'base-app';
 
+  i = inject(Injector);
+
   a = new FormControl('d', {
     updateOn: 'change',
   });
@@ -27,3 +29,5 @@ export class AppComponent {
     console.log(this.a);
   }
 }
+
+interface A {}

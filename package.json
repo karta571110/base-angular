@@ -22,7 +22,7 @@
     "prepare": "husky install",
     "build:pwa-app:watch": "ng build --project pwa-app --watch",
     "start:base-app": "ng s --project base-app",
-    "start:pwa-app": "npx http-server -p 8080 -c-1 dist/pwa-app/browser"
+    "start:pwa-app": "npx http-server -p 443 -c-1 dist/pwa-app/browser -SSL"
   },
   "private": true,
   "dependencies": {
@@ -90,7 +90,7 @@
     "typescript": "~5.2.2"
   },
   "lint-staged": {
-    "*.{js,ts}": [
+    "*.{js,ts,html}": [
       "eslint --fix"
     ],
     "*.{css,scss}": [
