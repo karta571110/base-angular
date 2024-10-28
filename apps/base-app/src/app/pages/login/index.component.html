@@ -1,0 +1,40 @@
+<section class="wrap">
+  <app-header></app-header>
+  <div class="container">
+    <div class="form-container">
+      <div class="bar">
+        @for (nothing of [null, null, null]; track nothing) {
+          <span class="material-symbols-rounded circle"> circle </span>
+        }
+      </div>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="input-container">
+          <app-input
+            [label]="'li.account' | transloco"
+            formControlName="account"
+            [fieldName]="'li.account' | transloco"
+            [placeholder]="
+              ('li.please-enter' | transloco) + ('li.account' | transloco)
+            "></app-input>
+          <app-input-password
+            [label]="'li.password' | transloco"
+            formControlName="password"
+            [fieldName]="'li.password' | transloco"
+            [placeholder]="
+              ('li.please-enter' | transloco) + ('li.password' | transloco)
+            "></app-input-password>
+        </div>
+
+        <button matRipple class="login-btn" type="submit">
+          {{ 'li.login' | transloco }}
+        </button>
+      </form>
+      <div class="form-footer">
+        <button type="button" [disabled]="true" class="forget-password-btn">
+          {{ 'li.forget-password' | transloco }}？
+        </button>
+        <app-i18n-setting-button></app-i18n-setting-button>
+      </div>
+    </div>
+  </div>
+</section>

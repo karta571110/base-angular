@@ -1,0 +1,20 @@
+.relative-dialog {
+  .mat-mdc-dialog-surface {
+    border-bottom: solid 3px var(--mdc-dialog-container-color);
+    border-radius: 8px !important;
+
+    &::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+      margin: 5px;
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background: #c1c7cd;
+    }
+  }
+}

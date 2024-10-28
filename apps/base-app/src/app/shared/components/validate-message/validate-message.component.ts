@@ -2,12 +2,11 @@ import { AsyncPipe } from '@angular/common';
 import { Component, Input, inject } from '@angular/core';
 import { type AbstractControl } from '@angular/forms';
 import { ErrorMessagePipe } from '@common/sdk/form';
-import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco';
+import { TRANSLOCO_SCOPE, TranslocoModule } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-validate-message',
   templateUrl: './validate-message.component.html',
-  styleUrls: ['./validate-message.component.scss'],
   standalone: true,
   imports: [AsyncPipe, ErrorMessagePipe, TranslocoModule],
   providers: [

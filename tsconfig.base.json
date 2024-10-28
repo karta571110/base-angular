@@ -1,35 +1,28 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "emitDecoratorMetadata": true,
     "rootDir": ".",
     "baseUrl": ".",
-    "paths": {
-      "@common-lib": ["libs/common-lib/src/index.ts"],
-      "@common/sdk": ["libs/common/sdk/src/index.ts"],
-      //寫成絕對路徑可以準確找到檔案
-      "@common/sdk/form": ["libs/common/sdk/form/index.ts"],
-      "@common/sdk/i18n": ["libs/common/sdk/i18n/index.ts"],
-      "@common/sdk/ui": ["libs/common/sdk/ui/index.ts"]
-    },
     "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
-    "downlevelIteration": true,
-    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
@@ -37,6 +30,5 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  },
-  "exclude": ["node_modules", "tmp"]
+  }
 }

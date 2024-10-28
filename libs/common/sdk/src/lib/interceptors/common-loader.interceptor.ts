@@ -1,34 +1,23 @@
-import {
-  type HttpEvent,
-  type HttpHandler,
-  type HttpInterceptor,
-  type HttpRequest,
-} from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
-import { type Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { type HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
 
+import { finalize } from 'rxjs/internal/operators/finalize';
+import { asapScheduler } from 'rxjs/internal/scheduler/asap';
 import { CommonLoaderService } from '../services/loader/common-loader.service';
 import { COMMON_IS_LOADER_ENABLE_TOKEN } from '../token/http-context/common-is-loader-enable.token';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class CommonLoaderInterceptor implements HttpInterceptor {
-  private _loaderService = inject(CommonLoaderService);
+export const loaderInterceptor: HttpInterceptorFn = (request, next) => {
+  const loaderService = inject(CommonLoaderService);
 
-  intercept(
-    request: HttpRequest<unknown>,
-    next: HttpHandler
-  ): Observable<HttpEvent<unknown>> {
+  asapScheduler.schedule(() => {
     if (request.context.get(COMMON_IS_LOADER_ENABLE_TOKEN)) {
-      this._loaderService.start();
+      loaderService.start();
     }
+  });
 
-    return next.handle(request).pipe(
-      finalize(() => {
-        this._loaderService.stop();
-      })
-    );
-  }
-}
+  return next(request).pipe(
+    finalize(() => {
+      loaderService.stop();
+    })
+  );
+};

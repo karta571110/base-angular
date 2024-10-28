@@ -1,0 +1,13 @@
+<div class="input-container">
+  <div class="label">{{ label() }}</div>
+  <div class="slider-container">
+    <mat-slider [min]="min()" [max]="max()" step="1" discrete>
+      <input matSliderThumb [formControl]="control!" />
+    </mat-slider>
+    <div class="scope">
+      <span>{{ min() }}</span>
+      <span>{{ max() }}</span>
+    </div>
+  </div>
+  <app-validate-message [control]="control"></app-validate-message>
+</div>

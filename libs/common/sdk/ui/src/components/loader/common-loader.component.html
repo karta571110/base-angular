@@ -1,5 +1,21 @@
-@if (isDisplayLoader && (isLoading$ | async)) {
-  <div class="load-background">
-    <ng-content></ng-content>
-  </div>
+@if (isDisplayLoader() || (commonLoaderService.isLoading() && isLoadApi())) {
+  @if (loaderType() === 'spinner') {
+    <div
+      class="load-background load-background--spinner"
+      [class]="position()"
+      (contextmenu)="contextEvent($event)">
+      <mat-progress-spinner color="primary" mode="determinate" value="80">
+      </mat-progress-spinner>
+      <ng-content></ng-content>
+    </div>
+  } @else {
+    <div
+      (contextmenu)="contextEvent($event)"
+      [class]="position()"
+      class="load-background load-background--progressbar">
+      <ng-content></ng-content>
+      <mat-progress-bar color="primary" mode="indeterminate">
+      </mat-progress-bar>
+    </div>
+  }
 }

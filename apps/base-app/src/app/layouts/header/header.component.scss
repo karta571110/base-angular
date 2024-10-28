@@ -1,0 +1,18 @@
+header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  padding: 10px 20px;
+  width: 100%;
+  min-height: 60px;
+  box-shadow: 1px 4px 10px 0 #0003;
+  gap: 15px;
+}
+
+.background {
+  width: 150px;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('assets/imgs/neo-canvas-logo.svg');
+}

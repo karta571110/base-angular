@@ -15,7 +15,7 @@ import {
   type ProviderScope,
   type Translation,
   type TranslocoScope,
-} from '@ngneat/transloco';
+} from '@jsverse/transloco';
 import isArray from 'lodash-es/isArray';
 import isEmpty from 'lodash-es/isEmpty';
 import isNull from 'lodash-es/isNull';
@@ -64,12 +64,12 @@ export class ErrorMessagePipe<
 
     if (isNull(errors)) return of([]);
     const scopes = this._getScopes().map(scope =>
-        this._convertToCamelCase(scope)
-      ),
-      errorKeys: (keyof ValidatorErrorMessage<customMessageDataT>)[] =
-        Object.keys(
-          errors
-        ) as (keyof ValidatorErrorMessage<customMessageDataT>)[];
+      this._convertToCamelCase(scope)
+    );
+    const errorKeys: (keyof ValidatorErrorMessage<customMessageDataT>)[] =
+      Object.keys(
+        errors
+      ) as (keyof ValidatorErrorMessage<customMessageDataT>)[];
 
     return this._load().pipe(
       switchMap(() =>
@@ -114,8 +114,8 @@ export class ErrorMessagePipe<
   }
 
   private _load(): Observable<Translation[]> {
-    const activeLang = this._translocoService.getActiveLang(),
-      scopes: string[] = this._getScopes();
+    const activeLang = this._translocoService.getActiveLang();
+    const scopes: string[] = this._getScopes();
 
     return forkJoin(
       scopes.map(scope => this._translocoService.load(`${scope}/${activeLang}`))
@@ -134,11 +134,11 @@ export class ErrorMessagePipe<
 
     if (isArray(i18nScope)) {
       scopes = i18nScope.map(s =>
-        this._isProviderScope(s) ? s.scope : s ?? ''
+        this._isProviderScope(s) ? s.scope : (s ?? '')
       );
     } else {
       scopes = [
-        this._isProviderScope(i18nScope) ? i18nScope.scope : i18nScope ?? '',
+        this._isProviderScope(i18nScope) ? i18nScope.scope : (i18nScope ?? ''),
       ];
     }
     const sdkFormIndex = scopes.findIndex(scope => scope === 'sdk-form');

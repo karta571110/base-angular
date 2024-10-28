@@ -22,18 +22,14 @@ export class CommonApiService {
 
   private _apiBaseUrl = inject(COMMON_API_BASE_URL_TOKEN);
 
-  constructor() {
-    console.log(this._apiBaseUrl);
-  }
-
   get<resT>(
     url: string,
     params?: ApiOptions['params'] | number | string,
     options?: ApiOptions
   ): Observable<resT> {
-    const urlTemp = this._isPathParams(params) ? this._getUrl(params) : url,
-      paramsTemp = this._isPathParams(params) ? undefined : params,
-      apiUrl = urlJoin(this._apiBaseUrl, urlTemp);
+    const urlTemp = this._isPathParams(params) ? this._getUrl(params) : url;
+    const paramsTemp = this._isPathParams(params) ? undefined : params;
+    const apiUrl = urlJoin(this._apiBaseUrl, urlTemp);
 
     return this._http.get<resT>(apiUrl, {
       params: paramsTemp,

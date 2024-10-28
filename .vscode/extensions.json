@@ -3,6 +3,10 @@
   "recommendations": [
     "angular.ng-template",
     "doggy8088.angular-extension-pack",
-    "esbenp.prettier-vscode"
+    "dbaeumer.vscode-eslint",
+    "streetsidesoftware.code-spell-checker",
+    "tomwhite007.rename-angular-component",
+    "segerdekort.angular-cli",
+    "Mikael.Angular-BeastCode"
   ]
 }

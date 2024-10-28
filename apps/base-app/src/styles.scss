@@ -1,7 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
-@use './sass/vendors/bootstrap';
+@use './sass/vendors/material';
 @use './sass/base';
 @use './sass/utils';
 @use './sass/utils/helpers';
 @use './sass/components';
+@use 'material-symbols';
+@use 'swiper/swiper-bundle.min.css';
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  height: 0;
+  min-height: 100vh;
+  max-height: 100vh;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

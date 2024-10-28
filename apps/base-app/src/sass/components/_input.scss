@@ -1,0 +1,36 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    font-size: 16px;
+    color: var(--label-color);
+    cursor: default;
+    transform: translate(-100%, -50%);
+  }
+
+  input:not(.mat-date-range-input-inner),
+  .select,
+  mat-date-range-input {
+    border: unset;
+    border-radius: 100px;
+    padding: 12px 24px;
+    padding-right: 36px;
+    background: var(--diagram-color-style);
+    flex-grow: 1;
+  }
+}
+
+.label {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 400;
+  color: var(--label-color);
+}
+
+.mat-mdc-slider .mdc-slider__input {
+  box-sizing: border-box !important;
+}

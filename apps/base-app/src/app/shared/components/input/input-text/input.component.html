@@ -1,0 +1,19 @@
+<div class="input-container">
+  <div class="label">{{ label() }}</div>
+  <div class="input-btn-container">
+    <input
+      [formControl]="control!"
+      [placeholder]="placeholder()"
+      [type]="inputType()" />
+    @if (iconName() !== null) {
+      <button
+        type="button"
+        class="material-symbols-rounded icon-btn icon"
+        (click)="iconClickEvent()"
+        [ngClass]="{ canIconClick: canIconClick() }">
+        {{ iconName() }}
+      </button>
+    }
+  </div>
+  <app-validate-message [control]="control"></app-validate-message>
+</div>

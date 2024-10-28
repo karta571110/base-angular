@@ -1,0 +1,7 @@
+.angular
+.husky
+.scannerwork
+.vscode
+node_modules
+dist
+.cspellcache

@@ -1,0 +1,44 @@
+::ng-deep app-input-select {
+  .select {
+    position: relative;
+    display: block;
+    padding: 0 !important;
+    width: 100%;
+    text-align: start;
+    cursor: pointer;
+
+    .placeholder {
+      color: var(--placeholder-color);
+    }
+  }
+
+  .mat-mdc-select-arrow {
+    svg {
+      fill: var(--label-color);
+    }
+  }
+
+  .mat-mdc-select-trigger {
+    padding: 8px 20px;
+  }
+
+  .mat-mdc-select-placeholder {
+    font-size: 14px;
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--placeholder-color);
+  }
+}
+
+::ng-deep {
+  mat-option:has(.app-input-select) {
+    .mat-pseudo-checkbox-checked {
+      background-color: var(--label-color) !important;
+    }
+  }
+}
+
+.mat-mdc-select-value-text {
+  font-size: 14px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 400;
+}

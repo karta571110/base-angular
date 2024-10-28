@@ -1,0 +1,19 @@
+:host {
+  // flex-grow: 1;
+  width: 100%;
+
+  // display: flex;
+  // align-items: center;
+}
+
+.swiper {
+  pointer-events: all;
+
+  // margin: unset;
+  // width: 100%;
+}
+
+.swiper-slide {
+  pointer-events: all;
+  width: auto;
+}

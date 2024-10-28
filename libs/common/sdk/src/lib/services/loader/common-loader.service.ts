@@ -1,6 +1,4 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { type Observable } from 'rxjs/internal/Observable';
+import { computed, Injectable, signal } from '@angular/core';
 
 /**
  * 管理是否載入中的狀態服務
@@ -10,33 +8,17 @@ import { type Observable } from 'rxjs/internal/Observable';
   providedIn: 'root',
 })
 export class CommonLoaderService {
-  loading$: Observable<boolean>;
+  isLoading = computed<boolean>(() => this._execCounter() > 0);
 
-  private _execCounter = 0;
-
-  private _loading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-    false
-  );
-
-  constructor() {
-    this.loading$ = this._loading.asObservable();
-  }
+  private _execCounter = signal(0);
 
   start(): void {
-    this._execCounter++;
-
-    if (this._execCounter > 0) {
-      this._loading.next(true);
-    }
+    this._execCounter.update(value => ++value);
   }
 
   stop(): void {
-    if (this._execCounter > 0) {
-      this._execCounter--;
-    }
-
-    if (this._execCounter <= 0) {
-      this._loading.next(false);
+    if (this._execCounter() > 0) {
+      this._execCounter.update(value => --value);
     }
   }
 }

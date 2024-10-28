@@ -44,3 +44,7 @@ Thumbs.db
 
 # cspell
 .cspellcache
+
+# sonar
+.scannerwork/*
+sonar-project.properties

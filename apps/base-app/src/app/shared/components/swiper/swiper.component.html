@@ -1,0 +1,31 @@
+<!-- Slider main container -->
+<div #container class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    @for (item of data(); track $index) {
+      <div class="swiper-slide">
+        <ng-container
+          [ngTemplateOutlet]="slideTemplate()"
+          [ngTemplateOutletContext]="{
+            $implicit: item,
+            index: $index,
+            last: $last,
+          }"></ng-container>
+      </div>
+    }
+  </div>
+  @if (hasPagination()) {
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  }
+  @if (hasNavigation()) {
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  }
+  @if (hasScrollbar()) {
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  }
+</div>

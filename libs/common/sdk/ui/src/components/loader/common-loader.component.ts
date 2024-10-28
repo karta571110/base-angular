@@ -1,18 +1,29 @@
-import { AsyncPipe } from '@angular/common';
-import { Component, Input, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonLoaderService } from '@common/sdk';
-import { type Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'common-loader',
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [MatProgressSpinnerModule, MatProgressBarModule],
   templateUrl: './common-loader.component.html',
   styleUrl: './common-loader.component.scss',
 })
 export class CommonLoaderComponent {
-  @Input() isDisplayLoader = true;
+  isDisplayLoader = input(false);
 
-  protected isLoading$: Observable<boolean> =
-    inject(CommonLoaderService).loading$;
+  isLoadApi = input(true);
+
+  loaderType = input<'progressbar' | 'spinner'>('spinner');
+
+  position = input<'bottom' | 'center' | 'top'>('center');
+
+  protected commonLoaderService: CommonLoaderService =
+    inject(CommonLoaderService);
+
+  protected contextEvent(e: MouseEvent): void {
+    e.preventDefault();
+    e.stopPropagation();
+  }
 }

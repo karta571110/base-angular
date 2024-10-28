@@ -1,0 +1,22 @@
+.input-btn-container {
+  position: relative;
+  display: flex;
+}
+
+input {
+  &::placeholder {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--placeholder-color);
+    opacity: 1; /* Firefox */
+  }
+}
+
+.icon-btn {
+  border: unset;
+  padding: 0;
+  background: transparent;
+}
+
+.canIconClick {
+  cursor: pointer;
+}

@@ -12,6 +12,7 @@
 - [4. 建立元件庫](#4-建立元件庫)
 - [5. i18n國際化語系](<#5-i18n國際化語系(@common/sdk/i18n)>)
 - [6. Angular響應式表單整合(@common/sdk/form)](<#6-Angular響應式表單整合(@common/sdk/form)>)
+- [7. Material Icon](<#7-Material Icon>)
 
 ## 1. 使用技術
 
@@ -23,8 +24,10 @@
   - Reactive Extensions Library
 - [SCSS](https://sass-lang.com)
   - CSS Preprocessor
-- [StoryBook](https://storybook.js.org/docs/angular/get-started/introduction)
-  - 構建和測試 UI 元件的 open source tools
+- [Angular Material v17](https://v17.material.angular.io/)
+  - 適用於Angular的UI套件
+- [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons)
+  - google提供的icon庫
 
 ## 2. 開發環境需求
 
@@ -131,6 +134,47 @@ ng generate directive control --standalone --path libs/common/sdk/form/src/direc
 </ng-container>
 ```
 
+## 惰性載入用法(Standalone Component 開發)
+
+```typescript
+  @Component({
+  selector: '?????',
+  standalone: true,
+  ...
+  providers: [
+    {
+      provide: TRANSLOCO_SCOPE,
+      useValue: {
+        scope: 'validate-messages', // 第2層資料夾
+        alias: 'vm', // 使用別稱
+      },
+      multi: true,
+    },
+  ],
+  ...
+})
+export class ????Component {
+  ...
+  private _translocoService = inject(TranslocoService);
+  private _someText = ''
+  private _sub =  this._translocoService.events$.subscribe(val => {
+      // 確保翻譯檔已載入
+      if (
+        val.payload.scope === '????-scope' &&
+        val.type === 'translationLoadSuccess'
+      ) {
+        this._someText = this._translocoService.translate('????-key');
+      }
+      this._sub.unsubscribe();
+      this._sub = null;
+    });
+}
+```
+
+```html
+{{ 'vm.xxx-key' | transloco }}
+```
+
 # 6. Angular響應式表單整合(@common/sdk/form)
 
 ## 裝飾器 (Directive)
@@ -148,4 +192,19 @@ ng generate directive control --standalone --path libs/common/sdk/form/src/direc
   hostDirectives: [ControlDirective],
 })
 export class ExampleInputComponent<ValueT> {}
+```
+
+# 7. Material Icon
+
+```html
+<!-- Outlined -->
+<span class="material-icons-outlined"> search </span>
+<!-- Filled -->
+<span class="material-icons"> search </span>
+<!-- Rounded -->
+<span class="material-symbols-rounded"> search </span>
+<!-- Sharp -->
+<span class="material-icons-sharp"> search </span>
+<!-- Two tone -->
+<span class="material-icons-two-tone"> search </span>
 ```

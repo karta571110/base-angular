@@ -1,0 +1,14 @@
+.scope {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider-container,
+.input-container {
+  width: 100%;
+}
+
+mat-slider {
+  margin: 0;
+  width: calc(100% - 12px);
+}

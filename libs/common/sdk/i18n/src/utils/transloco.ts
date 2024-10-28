@@ -7,11 +7,10 @@ import {
   provideTransloco,
   type TranslocoLoader,
   type TranslocoOptions,
-} from '@ngneat/transloco';
+} from '@jsverse/transloco';
 import { TranslocoLoaderService } from '../services';
 /**
  * 公版 transloco provider
- * @param routes - 路由清單
  * @param config - i18n套件設定
  * @param loader - 翻譯檔案載入器
  * @returns transloco 的 provider
@@ -33,6 +32,10 @@ export function getTranslocoProvide(
           {
             id: 'en',
             label: 'English',
+          },
+          {
+            id: 'cn',
+            label: '简体中文',
           },
         ],
         defaultLang: 'zh',

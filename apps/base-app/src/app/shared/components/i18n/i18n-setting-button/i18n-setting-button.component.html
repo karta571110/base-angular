@@ -1,0 +1,20 @@
+<button
+  class="wrap i18n-setting-btn"
+  type="button"
+  mat-menu-item
+  [matMenuTriggerFor]="matMenu">
+  <span class="material-symbols-rounded"> language </span>
+  <span>{{ i18nChangeManageService.activeLang()?.label }}</span>
+</button>
+
+<mat-menu #matMenu="matMenu" [xPosition]="'after'" [yPosition]="'above'">
+  @for (lang of i18nChangeManageService.availableLangs(); track lang.id) {
+    <button
+      matRipple
+      type="button"
+      mat-menu-item
+      (click)="i18nChangeManageService.langChange(lang)">
+      <span>{{ lang.label }}</span>
+    </button>
+  }
+</mat-menu>

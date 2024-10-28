@@ -1,0 +1,49 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  min-height: 100%;
+}
+
+mat-drawer-container {
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+
+  mat-drawer {
+    box-shadow: 0 4px 4px 0 #00000040;
+  }
+
+  mat-drawer-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  .feature-pages {
+    height: 0;
+    flex-grow: 1;
+  }
+}
+
+aside {
+  min-width: 200px;
+}
+
+.menu {
+  padding-left: 16px;
+  height: 100%;
+  background-color: var(--white);
+}
+
+.menu-toggle-btn {
+  cursor: pointer;
+  border-width: 0;
+  background-color: transparent;
+}

@@ -1,10 +1,19 @@
 // Global colors
 
 :root {
+  --primary: #308aed;
   --white: #fafafa;
   --black: #4b4e53;
   --main-color: #155e3f;
   --main-color-dark: #162921;
   --gradient-color1: #d7b784;
   --gradient-color2: #a27645;
+  --mat-sidenav-scrim-color: #0000004f;
+  --mat-sidenav-container-background-color: #ffffffbd;
+  --sidenav-btn-color: var(--primary);
+  --diagram-color-style: #edf3f9;
+  --label-color: #0b6bbf;
+  --placeholder-color: #b2b2b2;
+  --red: #ff494f;
+  --orange: #f2913d;
 }
