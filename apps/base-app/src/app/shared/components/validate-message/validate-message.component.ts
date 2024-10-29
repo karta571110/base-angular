@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, Input, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { type AbstractControl } from '@angular/forms';
 import { ErrorMessagePipe } from '@common/sdk/form';
 import { TRANSLOCO_SCOPE, TranslocoModule } from '@jsverse/transloco';
@@ -23,7 +23,7 @@ import { TRANSLOCO_SCOPE, TranslocoModule } from '@jsverse/transloco';
   ],
 })
 export class ValidateMessageComponent {
-  @Input() control: AbstractControl | null = null;
+  control = input.required<AbstractControl>();
 
   protected i18nScope = inject(TRANSLOCO_SCOPE);
 }

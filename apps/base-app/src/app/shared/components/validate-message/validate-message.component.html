@@ -1,5 +1,7 @@
-@for (text of control | errorMessages$ | async; track text) {
-  <p>
-    {{ text }}
-  </p>
+@if (control().touched && control().dirty) {
+  @for (text of control().errors | errorMessages$ | async; track text) {
+    <p>
+      {{ text }}
+    </p>
+  }
 }

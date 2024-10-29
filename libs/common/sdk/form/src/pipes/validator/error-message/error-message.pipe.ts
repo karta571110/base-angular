@@ -7,7 +7,7 @@ import {
   type OnDestroy,
   type PipeTransform,
 } from '@angular/core';
-import { type AbstractControl } from '@angular/forms';
+import { ValidationErrors } from '@angular/forms';
 import {
   TRANSLOCO_SCOPE,
   TranslocoService,
@@ -18,6 +18,7 @@ import {
 } from '@jsverse/transloco';
 import isArray from 'lodash-es/isArray';
 import isEmpty from 'lodash-es/isEmpty';
+import isNil from 'lodash-es/isNil';
 import isNull from 'lodash-es/isNull';
 import isString from 'lodash-es/isString';
 import { forkJoin, switchMap } from 'rxjs';
@@ -57,19 +58,15 @@ export class ErrorMessagePipe<
     private _i18nScope?: OrArray<TranslocoScope> | null
   ) {}
 
-  transform(control: AbstractControl | null): Observable<string[]> {
-    if (isNull(control)) return of([]);
-    const errors =
-      control.errors as ValidatorErrorMessage<customMessageDataT> | null;
+  transform(errors: ValidationErrors | null | undefined): Observable<string[]> {
+    if (isNil(errors)) return of([]);
+    const e = errors as ValidatorErrorMessage<customMessageDataT>;
 
-    if (isNull(errors)) return of([]);
     const scopes = this._getScopes().map(scope =>
       this._convertToCamelCase(scope)
     );
     const errorKeys: (keyof ValidatorErrorMessage<customMessageDataT>)[] =
-      Object.keys(
-        errors
-      ) as (keyof ValidatorErrorMessage<customMessageDataT>)[];
+      Object.keys(e) as (keyof ValidatorErrorMessage<customMessageDataT>)[];
 
     return this._load().pipe(
       switchMap(() =>
@@ -84,7 +81,7 @@ export class ErrorMessagePipe<
 
               message = this._translocoService.translate(
                 translationKey as string,
-                errors[key] ?? {}
+                e[key] ?? {}
               );
 
               if (message !== translationKey) {
