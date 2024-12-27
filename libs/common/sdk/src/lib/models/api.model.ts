@@ -4,8 +4,8 @@ import {
   type HttpParams,
 } from '@angular/common/http';
 
-export interface ApiOptions {
-  body?: unknown;
+export interface ApiOptions<bodyT = unknown> {
+  body?: bodyT;
   params?:
     | HttpParams
     | Record<

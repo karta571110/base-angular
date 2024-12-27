@@ -91,6 +91,19 @@ export class CommonApiService {
     });
   }
 
+  customRequest<reqT, resT>(
+    method: 'delete' | 'get' | 'post' | 'put',
+    url: string,
+    options?:
+      | ApiOptions<reqT>
+      | {
+          observe: 'body' | 'response';
+          responseType: 'arraybuffer' | 'blob' | 'json' | 'text';
+        }
+  ): Observable<resT> {
+    return this._http.request(method, url, options);
+  }
+
   private _getHttpClientOptions(options?: ApiOptions): ApiOptions | undefined {
     if (isUndefined(options)) return options;
     const context = new HttpContext();
