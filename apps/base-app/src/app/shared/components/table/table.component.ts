@@ -19,7 +19,6 @@ import { CustomThDirective } from './directives/custom-th/custom-th.directive';
 import { Column } from './table.model';
 @Component({
   selector: 'app-table',
-  standalone: true,
   imports: [
     ScrollingModule,
     MatTableModule,

@@ -13,7 +13,6 @@ import { Swiper } from 'swiper';
 import { SwiperOptions } from 'swiper/types';
 @Component({
   selector: 'app-swiper',
-  standalone: true,
   imports: [NgTemplateOutlet],
   templateUrl: './swiper.component.html',
   styleUrl: './swiper.component.scss',

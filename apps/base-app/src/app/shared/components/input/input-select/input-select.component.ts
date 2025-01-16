@@ -11,7 +11,6 @@ import { SelectOption } from './select.model';
   selector: 'app-input-select',
   templateUrl: './input-select.component.html',
   styleUrls: ['./input-select.component.scss'],
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     ControlDirective,

@@ -1,6 +1,7 @@
 import {
-  APP_INITIALIZER,
   CSP_NONCE,
+  inject,
+  provideAppInitializer,
   provideZoneChangeDetection,
   type ApplicationConfig,
 } from '@angular/core';
@@ -14,6 +15,7 @@ import {
   CommonBaseAuthenticationService,
   CommonBaseTokenService,
   loaderInterceptor,
+  styleElementCsp,
 } from '@common/sdk';
 import { getTranslocoProvide } from '@common/sdk/i18n';
 import { AuthenticationService } from './core/services/authentication/authentication/authentication.service';
@@ -49,6 +51,7 @@ function getCspNonce(): string {
 
         return originalAppendChildBind(node);
       };
+      styleElementCsp(content);
 
       return content;
     }
@@ -137,14 +140,11 @@ export const appConfig: ApplicationConfig = {
       provide: CommonBaseAuthenticationService,
       useExisting: AuthenticationService,
     },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (tokenService: TokenService) => () => {
-        tokenService.initToken();
-      },
-      deps: [TokenService],
-      multi: true,
-    },
+    provideAppInitializer(() => {
+      const tokenService = inject(TokenService);
+
+      tokenService.initToken();
+    }),
     {
       provide: CSP_NONCE,
       useValue: getCspNonce(),

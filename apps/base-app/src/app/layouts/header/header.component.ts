@@ -4,7 +4,6 @@ import { ScreenService } from '@common/sdk';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
   imports: [NgStyle, AsyncPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

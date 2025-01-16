@@ -4,7 +4,6 @@ import { InputComponent } from '../input-text/input.component';
 
 @Component({
   selector: 'app-input-password',
-  standalone: true,
   imports: [InputComponent],
   templateUrl: './input-password.component.html',
   hostDirectives: [controlDirectiveProvider],

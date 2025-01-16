@@ -8,7 +8,6 @@ import { BaseInputComponent } from '../base-input';
   selector: 'app-input-slider',
   templateUrl: './input-slider.component.html',
   styleUrls: ['./input-slider.component.scss'],
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     ControlDirective,

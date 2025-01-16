@@ -5,7 +5,6 @@ import { CommonLoaderService } from '@common/sdk';
 
 @Component({
   selector: 'common-loader',
-  standalone: true,
   imports: [MatProgressSpinnerModule, MatProgressBarModule],
   templateUrl: './common-loader.component.html',
   styleUrl: './common-loader.component.scss',

@@ -11,7 +11,6 @@ import { InputComponent } from '@src/app/shared/components/input/input-text/inpu
 
 @Component({
   selector: 'app-login',
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     InputComponent,

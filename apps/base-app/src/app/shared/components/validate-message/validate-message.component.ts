@@ -7,7 +7,6 @@ import { TRANSLOCO_SCOPE, TranslocoModule } from '@jsverse/transloco';
 @Component({
   selector: 'app-validate-message',
   templateUrl: './validate-message.component.html',
-  standalone: true,
   imports: [AsyncPipe, ErrorMessagePipe, TranslocoModule],
   providers: [
     {

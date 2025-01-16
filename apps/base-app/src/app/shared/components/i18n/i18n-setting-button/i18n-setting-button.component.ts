@@ -4,7 +4,6 @@ import { I18nChangeManageService } from '../services/i18n-change-manage/i18n-cha
 
 @Component({
   selector: 'app-i18n-setting-button',
-  standalone: true,
   imports: [MatMenuModule],
   templateUrl: './i18n-setting-button.component.html',
   styleUrl: './i18n-setting-button.component.scss',

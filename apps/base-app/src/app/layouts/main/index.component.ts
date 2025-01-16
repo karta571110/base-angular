@@ -11,7 +11,6 @@ import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { HeaderComponent } from '../header/header.component';
 @Component({
   selector: 'app-main-index',
-  standalone: true,
   imports: [RouterOutlet, MatSidenavModule, HeaderComponent],
   templateUrl: './index.component.html',
   styleUrl: './index.component.scss',

@@ -33,7 +33,6 @@ const locale: Record<string, Locale> = {
   selector: 'app-input-date-range',
   templateUrl: './input-date-range.component.html',
   styleUrls: ['./input-date-range.component.scss'],
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     MatDatepickerModule,

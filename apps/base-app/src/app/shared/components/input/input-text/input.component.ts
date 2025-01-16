@@ -9,7 +9,6 @@ import { BaseInputComponent } from '../base-input';
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     ControlDirective,
