@@ -14,7 +14,6 @@
     "dev": "ng serve base-app",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "jest",
     "lint": "ng lint",
     "lint:fix": "npx ng lint --fix",
     "prettier": "npx prettier --write .",
@@ -23,7 +22,9 @@
     "prepare": "husky install",
     "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
     "docker:build": "docker rm neo-canvas -f && docker build -t neo-canvas/app . && npm run docker:run",
-    "docker:run": "docker run -d -it -p 4200:80/tcp --name neo-canvas neo-canvas/app"
+    "docker:run": "docker run -d -it -p 4200:80/tcp --name neo-canvas neo-canvas/app",
+    "test": "jest",
+    "test:base-app": "set TS_NODE_PROJECT='apps/base-app/tsconfig.json' & jest --selectProjects=base-app"
   },
   "private": true,
   "dependencies": {
@@ -98,6 +99,7 @@
     "stylelint-config-standard-scss": "^11.0.0",
     "stylelint-order": "^6.0.3",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "~5.5.4"
   },
   "lint-staged": {
