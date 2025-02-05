@@ -1,4 +1,41 @@
-* text=auto eol=lf
+# Set default line endings to lf.
+* text eol=lf
 
+# Force batch scripts to always use CRLF line endings so that if a repo is accessed
+# in Windows via a file share from Linux, the scripts will work.
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+
+# Force bash scripts to always use LF line endings so that if a repo is accessed
+# in Unix via a file share from Windows, the scripts will work.
+*.sh text eol=lf
+
+#######################################################
+# These files are binary and should be left untouched #
+#######################################################
+
+# Archives
+*.7z binary
+*.br binary
+*.gz binary
+*.tar binary
+*.zip binary
+*.tgz binary
+
+# Documents
+*.pdf binary
+
+# Images
+*.gif binary
+*.ico binary
+*.jpg binary
+*.pdf binary
 *.png binary
-*.otf binary
+*.psd binary
+*.webp binary
+
+# Fonts
+*.woff2 binary
+
+# Other
+*.exe binary
