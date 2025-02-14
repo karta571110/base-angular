@@ -369,10 +369,7 @@
             "leadingUnderscore": "require"
           }
         ],
-        "@typescript-eslint/consistent-generic-constructors": [
-          "error",
-          "constructor"
-        ],
+        "@typescript-eslint/consistent-generic-constructors": "error",
         "@typescript-eslint/consistent-indexed-object-style": [
           "error",
           "record"

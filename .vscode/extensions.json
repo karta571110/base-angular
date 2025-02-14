@@ -7,6 +7,7 @@
     "streetsidesoftware.code-spell-checker",
     "tomwhite007.rename-angular-component",
     "segerdekort.angular-cli",
-    "Mikael.Angular-BeastCode"
+    "Mikael.Angular-BeastCode",
+    "esbenp.prettier-vscode"
   ]
 }
