@@ -7,5 +7,3 @@ export * from './base/common-base-token.service';
 export * from './loader/common-loader.service';
 
 export * from './screen/screen.service';
-
-export * from './web-socket/web-socket.service';
