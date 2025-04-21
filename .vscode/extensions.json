@@ -8,6 +8,7 @@
     "tomwhite007.rename-angular-component",
     "segerdekort.angular-cli",
     "Mikael.Angular-BeastCode",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint"
   ]
 }
