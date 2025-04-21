@@ -9,6 +9,7 @@
     "segerdekort.angular-cli",
     "Mikael.Angular-BeastCode",
     "esbenp.prettier-vscode",
-    "stylelint.vscode-stylelint"
+    "stylelint.vscode-stylelint",
+    "Gruntfuggly.todo-tree"
   ]
 }

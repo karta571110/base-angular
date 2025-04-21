@@ -2,11 +2,11 @@
   "name": "base-workplace",
   "version": "0.0.0",
   "engines": {
-    "node": "20.17.0",
-    "npm": "10.8.2"
+    "node": "22.14.0",
+    "npm": "10.9.2"
   },
   "volta": {
-    "node": "20.17.0"
+    "node": "22.14.0"
   },
   "scripts": {
     "ng": "ng",
