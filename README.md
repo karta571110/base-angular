@@ -389,3 +389,11 @@ export class ????Component {
 ```html
 {{ 'vm.xxx-key' | transloco }}
 ```
+
+# 16. SonarQube掃描
+
+- 指令
+
+```html
+npx sonar-scanner
+```
