@@ -22,8 +22,8 @@
     "stylelint:fix": "npx stylelint '**/*.{scss,css}' --fix",
     "prepare": "husky install",
     "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
-    "docker:build": "docker rm neo-canvas -f && docker build -t neo-canvas/app . && npm run docker:run",
-    "docker:run": "docker run -d -it -p 4200:80/tcp --name neo-canvas neo-canvas/app"
+    "docker:build": "docker rm base-app -f && docker build -t base-app/app . && npm run docker:run",
+    "docker:run": "docker run -d -it -p 4200:80/tcp --name base-app base-app/app"
   },
   "private": true,
   "dependencies": {

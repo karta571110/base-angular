@@ -11,7 +11,8 @@
     "*.json",
     "nginx.conf",
     "dockerfile",
-    ".dockerignore"
+    ".dockerignore",
+    "nginx.conf.template"
   ],
   "words": [
     "advtab",
