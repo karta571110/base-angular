@@ -10,6 +10,7 @@
     "Mikael.Angular-BeastCode",
     "esbenp.prettier-vscode",
     "stylelint.vscode-stylelint",
-    "Gruntfuggly.todo-tree"
+    "Gruntfuggly.todo-tree",
+    "snyk-security.snyk-vulnerability-scanner"
   ]
 }

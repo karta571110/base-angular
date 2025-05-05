@@ -37,6 +37,8 @@
 - [14. git-conventional-commits](#14-git-conventional-commits)
   - [14.1 git-commit-範例](#141-git-commit-範例)
 - [15. i18n國際化語系](#15-i18n國際化語系)
+- [16. sonarqube掃描](#16-sonarqube掃描)
+- [17. snyk 掃描](#17-Snyk-掃描)
 
 # 1. 使用技術
 
@@ -397,3 +399,21 @@ export class ????Component {
 ```html
 npx sonar-scanner
 ```
+
+# 17. Snyk 掃描
+
+- 指令
+
+1. 登入
+
+```cmd=
+npx snyk auth
+```
+
+2. 掃描
+
+```cmd=
+npx snyk monitor
+```
+
+3. 掃描後Cmd會顯示結果網址，點下去即可查看
