@@ -23,7 +23,8 @@
     "prepare": "husky install",
     "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
     "docker:build": "docker rm base-app -f && docker build -t base-app/app . && npm run docker:run",
-    "docker:run": "docker run -d -it -p 4200:80/tcp --name base-app base-app/app"
+    "docker:run": "docker run -d -it -p 4200:80/tcp --name base-app base-app/app",
+    "docker:ge-tar": "docker save -o ./frontend.tar base-app/app"
   },
   "private": true,
   "dependencies": {
