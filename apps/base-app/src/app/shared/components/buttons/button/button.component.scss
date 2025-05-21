@@ -1,0 +1,24 @@
+button:not(.no-style) {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 12px 24px;
+  width: inherit;
+  height: 100%;
+  gap: 4px;
+}
+
+.primary {
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.normal {
+  border: solid 2px var(--gray);
+  color: var(--gray);
+  background-color: var(--white);
+}
+
+* {
+  color: inherit;
+}

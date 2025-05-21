@@ -1,0 +1,14 @@
+@if (isDisplayButton()) {
+  <button
+    matRipple
+    class="reset-button-style {{ buttonType() }}"
+    [type]="type()"
+    [disabled]="isDisabled()"
+    (click)="onclick.emit($event)">
+    @let iconNameParam = iconName();
+    @if (iconNameParam) {
+      <app-icon [iconName]="iconNameParam"></app-icon>
+    }
+    <ng-content></ng-content>
+  </button>
+}
