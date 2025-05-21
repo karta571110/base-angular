@@ -1,0 +1,12 @@
+@for (control of controls(); track control) {
+  <input
+    #input
+    [type]="inputType()"
+    [formControl]="control"
+    [pattern]="inputPattern()"
+    (focus)="focusEvent()"
+    (paste)="pasteEvent($event)"
+    (input)="inputEvent($event, $index)"
+    (keyup)="keyUpEvent($event, $index)"
+    (keydown)="keyDownEvent($event, $index)" />
+}
