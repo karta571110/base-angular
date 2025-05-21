@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+mat-select {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  padding: 0 12px;
+  width: 110px;
+}
+
+app-button {
+  border: 2px solid transparent;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  &.active {
+    div {
+      color: var(--primary);
+    }
+
+    border-color: var(--primary);
+    border-radius: 8px;
+  }
+}
+
+app-icon {
+  display: flex;
+  align-items: center;
+}

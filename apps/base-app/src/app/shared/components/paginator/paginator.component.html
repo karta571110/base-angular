@@ -1,0 +1,55 @@
+@let lastIndex = totalPage() - 1;
+<app-button
+  type="button"
+  buttonType="no-style"
+  [isDisabled]="pageIndex() === 0"
+  (onclick)="handlePageEvent(pageIndex() - 1)"
+  ><div><app-icon iconName="chevron_left"></app-icon></div
+></app-button>
+<app-button
+  [ngClass]="{ active: pageIndex() === 0 }"
+  type="button"
+  buttonType="no-style"
+  (onclick)="handlePageEvent(0)"
+  ><div>1</div></app-button
+>
+
+@for (buttonIndex of centerPageButton(); track buttonIndex) {
+  @if ($first && buttonIndex - 1 > 0) {
+    <app-icon iconName="more_horiz"></app-icon>
+  }
+  @if (buttonIndex > 0 && buttonIndex < lastIndex) {
+    <app-button
+      [ngClass]="{ active: pageIndex() === buttonIndex }"
+      type="button"
+      buttonType="no-style"
+      (onclick)="handlePageEvent(buttonIndex)"
+      ><div>{{ buttonIndex + 1 }}</div></app-button
+    >
+  }
+
+  @if ($last && buttonIndex + 1 < lastIndex) {
+    <app-icon iconName="more_horiz">more_horiz</app-icon>
+  }
+}
+@if (lastIndex > 0) {
+  <app-button
+    [ngClass]="{ active: pageIndex() === lastIndex }"
+    type="button"
+    buttonType="no-style"
+    (onclick)="handlePageEvent(lastIndex)"
+    ><div>{{ totalPage() }}</div></app-button
+  >
+}
+<app-button
+  type="button"
+  buttonType="no-style"
+  [isDisabled]="pageIndex() === lastIndex"
+  (onclick)="handlePageEvent(pageIndex() + 1)"
+  ><div><app-icon iconName="chevron_right"></app-icon></div
+></app-button>
+<mat-select [formControl]="pageSizeControl">
+  @for (o of pageSizeOptionsFormat(); track o.optionValue) {
+    <mat-option [value]="o.optionValue">{{ o.optionName }}</mat-option>
+  }
+</mat-select>
