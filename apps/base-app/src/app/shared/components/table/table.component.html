@@ -1,5 +1,5 @@
 <table mat-table [dataSource]="dataSource" aria-describedby="table">
-  @for (column of columns(); track column.field) {
+  @for (column of columnsForRender(); track column.field) {
     <ng-container [matColumnDef]="column.field">
       <th mat-header-cell *matHeaderCellDef scope="col">
         @if (columnTemplateMap.has(column.field)) {
@@ -9,8 +9,17 @@
             "
             [ngTemplateOutletContext]="column"></ng-container>
         } @else {
-          <div class="default-cell header">
-            {{ column.name | transloco }}
+          <div
+            [ngStyle]="{ 'justify-content': column.align ?? 'start' }"
+            class="default-cell header">
+            {{ column.name }}
+            @let sort = column.sort;
+            @if (sort !== undefined) {
+              <app-button
+                buttonType="no-style"
+                [iconName]="sortModeStep[sort]"
+                (onclick)="nextSortStep(column)"></app-button>
+            }
           </div>
         }
       </th>
@@ -22,9 +31,16 @@
             "
             [ngTemplateOutletContext]="data"></ng-container>
         } @else {
-          <div class="default-cell">
-            {{ data[column.field] }}
-          </div>
+          @let columnSetting = columnSettingKeyMap().get(column.field);
+          @if (columnSetting) {
+            <div
+              class="default-cell"
+              [ngStyle]="{
+                'justify-content': columnSetting.align ?? 'start',
+              }">
+              {{ data[column.field] }}
+            </div>
+          }
         }
       </td>
     </ng-container>
@@ -45,3 +61,9 @@
     </td>
   </tr>
 </table>
+
+@if (usePaginator()) {
+  <app-paginator
+    [dataLength]="rowData().length"
+    (pageEvent)="pageEvent.emit($event)"></app-paginator>
+}

@@ -2,9 +2,15 @@ table {
   width: 100%;
 }
 
+tr {
+  height: 100%;
+}
+
 th,
 td {
-  height: 0;
+  padding: 0.7rem;
+  height: 100%;
+  vertical-align: middle;
 }
 
 .default-cell {
@@ -14,7 +20,7 @@ td {
   height: 100%;
 
   &.header {
-    font-family: 'Noto Sans TC', sans-serif;
+    font-family: Roboto, sans-serif;
     font-weight: 700;
   }
 }
