@@ -1,0 +1,15 @@
+::ng-deep app-tag-dropdown {
+  .mdc-evolution-chip__text-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+.remove-btn {
+  border: unset;
+  padding: 0;
+  font-size: 1.4rem;
+  background-color: transparent;
+  cursor: pointer;
+}

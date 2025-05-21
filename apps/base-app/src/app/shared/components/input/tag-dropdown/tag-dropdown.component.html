@@ -1,0 +1,22 @@
+<app-search-dropdown
+  [placeholder]="placeholder()"
+  [formControl]="control!"
+  [options]="filterOptions()"
+  [label]="label()"
+  (searchChange)="searchChangeEvent()"
+  (optionSelected)="optionSelectedEvent($event)"
+  (inputEnterKeyup)="createNewTag($event)"></app-search-dropdown>
+<mat-chip-set>
+  @for (tag of tagList(); track tag.id) {
+    <mat-chip>
+      <span>{{ tag.name }}</span>
+      <button
+        type="button"
+        tabindex="-1"
+        class="material-symbols-rounded remove-btn"
+        (click)="removeTagEvent(tag.id)">
+        close
+      </button>
+    </mat-chip>
+  }
+</mat-chip-set>
