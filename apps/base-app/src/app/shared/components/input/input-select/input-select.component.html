@@ -1,21 +1,24 @@
 <div class="input-container">
   <div class="label">{{ label() }}</div>
-  <mat-select
-    [formControl]="control!"
-    [panelClass]="panelClass()"
-    multiple
-    [classList]="['select']"
-    [placeholder]="placeholder() || ''">
-    <mat-select-trigger>
-      {{ control?.value || '' }}
-    </mat-select-trigger>
+  @if (control) {
+    <mat-select
+      [formControl]="control"
+      [panelClass]="panelClass()"
+      multiple
+      [classList]="['select']"
+      [placeholder]="placeholder() || ''">
+      @let selectNames = currentSelect;
+      @if (selectNames) {
+        <mat-select-trigger> {{ selectNames() || '' }} </mat-select-trigger>
+      }
 
-    @for (option of options(); track option.optionName) {
-      <mat-option [value]="option.optionValue"
-        ><span class="app-input-select">
-          {{ option.optionName }}
-        </span></mat-option
-      >
-    }
-  </mat-select>
+      @for (option of options(); track option.optionName) {
+        <mat-option [value]="option.optionValue"
+          ><span class="app-input-select">
+            {{ option.optionName }}
+          </span></mat-option
+        >
+      }
+    </mat-select>
+  }
 </div>
