@@ -1,6 +1,10 @@
 import { NgClass } from '@angular/common';
 import { Component, inject, input, output, type OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import {
+  MatAutocomplete,
+  MatAutocompleteModule,
+} from '@angular/material/autocomplete';
 import { ControlDirective, controlDirectiveProvider } from '@common/sdk/form';
 import { ValidateMessageComponent } from '../../validate-message/validate-message.component';
 import { BaseInputComponent } from '../base-input';
@@ -11,9 +15,9 @@ import { BaseInputComponent } from '../base-input';
   styleUrls: ['./input.component.scss'],
   imports: [
     ReactiveFormsModule,
-    ControlDirective,
     ValidateMessageComponent,
     NgClass,
+    MatAutocompleteModule,
   ],
   hostDirectives: [controlDirectiveProvider],
 })
@@ -22,7 +26,13 @@ export class InputComponent extends BaseInputComponent implements OnInit {
 
   inputType = input<string>('text');
 
+  autoComplete = input<MatAutocomplete | null>(null);
+
   iconClick = output();
+
+  inputKeyup = output<KeyboardEvent>();
+
+  inputFocus = output();
 
   protected control: FormControl<string> | null = null;
 
@@ -41,5 +51,13 @@ export class InputComponent extends BaseInputComponent implements OnInit {
       return;
     }
     this.iconClick.emit();
+  }
+
+  protected keyupEvent(event: KeyboardEvent): void {
+    this.inputKeyup.emit(event);
+  }
+
+  protected inputFocusEvent(): void {
+    this.inputFocus.emit();
   }
 }
