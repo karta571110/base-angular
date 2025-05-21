@@ -1,0 +1,20 @@
+<app-input
+  #searchInput
+  [autoComplete]="autoComplete"
+  [iconName]="iconName()"
+  [placeholder]="placeholder()"
+  [label]="label()"
+  [formControl]="searchTextControl"
+  (inputKeyup)="enterHandle($event)"
+  (valueChange)="searchChangeEvent($event)"
+  (inputFocus)="searchChangeEvent()"></app-input>
+
+<mat-autocomplete
+  #autoComplete="matAutocomplete"
+  (optionSelected)="optionSelectedEvent($event)">
+  @for (option of filteredOptions(); track option.optionValue) {
+    <mat-option [value]="option.optionValue">{{
+      option.optionName
+    }}</mat-option>
+  }
+</mat-autocomplete>
