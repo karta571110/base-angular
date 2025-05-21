@@ -1,0 +1,15 @@
+<nav class="breadcrumb-container">
+  @for (
+    breadcrumb of breadcrumbService.breadcrumbs();
+    track breadcrumb.routePath
+  ) {
+    <a [routerLink]="breadcrumb.routePath"
+      ><span [ngClass]="{ last: $last }"
+        >{{ breadcrumb.breadcrumbLabel }}
+      </span></a
+    >
+    @if (!$last) {
+      <span class="separator">/</span>
+    }
+  }
+</nav>

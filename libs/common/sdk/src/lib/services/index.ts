@@ -6,4 +6,6 @@ export * from './base/common-base-token.service';
 
 export * from './loader/common-loader.service';
 
+export * from './breadcrumb/breadcrumb.service';
+
 export * from './screen/screen.service';
