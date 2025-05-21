@@ -18,6 +18,7 @@ import {
   styleElementCsp,
 } from '@common/sdk';
 import { getTranslocoProvide } from '@common/sdk/i18n';
+import { AuthRoute } from './core/constants/menu-feature-define';
 import { AuthenticationService } from './core/services/authentication/authentication/authentication.service';
 import { TokenService } from './core/services/authentication/token/token.service';
 
@@ -75,7 +76,7 @@ const supportLangs = [
 ];
 const routes: Routes = [
   {
-    path: 'login',
+    path: AuthRoute.login,
     loadComponent: () =>
       import('./pages/login/index.component').then(c => c.IndexComponent),
   },
@@ -98,11 +99,11 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login',
+    redirectTo: AuthRoute.login,
   },
   {
     path: '**',
-    redirectTo: 'login',
+    redirectTo: AuthRoute.login,
   },
 ];
 

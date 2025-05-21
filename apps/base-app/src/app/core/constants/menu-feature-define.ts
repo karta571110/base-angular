@@ -1,43 +1,38 @@
-export interface MenuContent {
-  i18nTitle: string;
-  routePath?: string;
-}
+const baseFeatureRoute = '/main/dashboard/';
 
-// 注入以下項目後即可翻譯
-// {
-//   provide: TRANSLOCO_SCOPE,
-//   useValue: {
-//     scope: 'components/menu',
-//     alias: 'm',
-//   },
-//   multi: true,
-// },
+export enum AuthRoute {
+  login = 'login',
+}
+/** 功能ID */
+export enum MainFeatureRoute {
+  /** 首頁 */
+  home = 'home',
+  /** 父 */
+  testRoot = 'test-root',
+  /** ┗ 子-1 */
+  testChild1 = 'test-child1',
+  /** ┗ 子-2 */
+  testChild2 = 'test-child2',
+}
 export const menuContent = {
-  menu1: {
-    i18nTitle: 'm.menu1',
-    routePath: null,
+  /** 首頁 */
+  [MainFeatureRoute.home]: {
+    routePath: `${baseFeatureRoute}${MainFeatureRoute.home}`,
   },
-  diagram: {
-    i18nTitle: 'm.diagram',
-    routePath: '/main/dashboard/diagrams',
+  /** 父 */
+  [MainFeatureRoute.testRoot]: {
+    routePath: MainFeatureRoute.testRoot,
   },
-  menu2: {
-    i18nTitle: 'm.menu1',
-    routePath: null,
+  /** ┗ 子-1 */
+  [MainFeatureRoute.testChild1]: {
+    routePath: `${baseFeatureRoute}${MainFeatureRoute.testRoot}/${MainFeatureRoute.testChild1}`,
   },
-  sankey: {
-    i18nTitle: 'm.sankey',
-    routePath: '/main/dashboard/sankey',
-  },
-  menu3: {
-    i18nTitle: 'm.menu1',
-    routePath: null,
-  },
-  sankey1: {
-    i18nTitle: 'm.sankey',
-    routePath: '/main/dashboard/sankey',
+  /** ┗ 子-2 */
+  [MainFeatureRoute.testChild2]: {
+    routePath: `${baseFeatureRoute}${MainFeatureRoute.testRoot}/${MainFeatureRoute.testChild2}`,
   },
 } as const;
 
 export type FeatureId = keyof typeof menuContent;
-export type RoutePath = (typeof menuContent)[FeatureId]['routePath'];
+export type RoutePath<K extends FeatureId> =
+  (typeof menuContent)[K]['routePath'];

@@ -1,0 +1,96 @@
+<mat-accordion class="example-headers-align" multi>
+  @if (isMenuEmpty()) {
+    <mat-expansion-panel [hideToggle]="true"></mat-expansion-panel>
+  }
+  @for (menuData of menuList(); track menuData.featureId) {
+    @if (!menuData.isVisible()) {
+      <ng-container
+        *ngTemplateOutlet="panelTemplate; context: menuData"></ng-container>
+    }
+  }
+</mat-accordion>
+
+<ng-template
+  [commonDefineDataType]="menuDataT"
+  #panelTemplate
+  let-featureId="featureId"
+  let-menuTitle="title"
+  let-children="children"
+  let-routePath="routePath"
+  let-isExpand="isExpand">
+  @if (children().length > 0) {
+    <mat-expansion-panel
+      #panel
+      [hideToggle]="true"
+      [expanded]="isExpand()"
+      (afterExpand)="afterExpand(isExpand)"
+      (afterCollapse)="afterCollapse(isExpand)">
+      <mat-expansion-panel-header
+        [collapsedHeight]="'45px'"
+        [expandedHeight]="'45px'">
+        <mat-panel-title>
+          <span class="panel-title">{{ menuTitle }}</span>
+          <span class="material-symbols-rounded"
+            >{{ panel.expanded ? 'expand_less' : 'expand_more' }}
+          </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ng-template matExpansionPanelContent>
+        <div class="path-container">
+          @for (child of children(); track child.featureId) {
+            @if (child.routePath !== null) {
+              <ng-container
+                *ngTemplateOutlet="link; context: child"></ng-container>
+            }
+
+            @for (grandChild of child.children(); track grandChild.featureId) {
+              @if (
+                !grandChild.isVisible() && grandChild.children().length > 0
+              ) {
+                <ng-container
+                  *ngTemplateOutlet="
+                    panelTemplate;
+                    context: grandChild
+                  "></ng-container>
+              } @else if (
+                grandChild.children().length === 0 &&
+                grandChild.routePath !== null
+              ) {
+                <ng-container
+                  *ngTemplateOutlet="link; context: grandChild"></ng-container>
+              }
+            }
+          }
+        </div>
+      </ng-template>
+    </mat-expansion-panel>
+  } @else {
+    <div class="root-link">
+      <ng-container
+        *ngTemplateOutlet="
+          link;
+          context: {
+            featureId,
+            children,
+            title: menuTitle,
+            routePath,
+            isExpand,
+          }
+        "></ng-container>
+    </div>
+  }
+  <ng-template
+    #link
+    [commonDefineDataType]="menuDataT"
+    let-routePath="routePath"
+    let-title="title">
+    <div
+      class="route-link"
+      [routerLink]="routePath"
+      routerLinkActive="route-active">
+      <span>
+        {{ title }}
+      </span>
+    </div>
+  </ng-template>
+</ng-template>

@@ -1,0 +1,89 @@
+::ng-deep app-menu {
+  mat-expansion-panel {
+    min-width: 185px;
+    background: var(--white) !important;
+    box-shadow: none !important;
+
+    &:has(.route-active) {
+      .panel-title {
+        font-weight: 700;
+        color: var(--primary);
+      }
+    }
+
+    &:not(:has(.route-active)) {
+      .panel-title {
+        font-weight: 400;
+        color: #333;
+      }
+    }
+  }
+
+  .mat-expansion-panel-header-title {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 0 !important;
+  }
+
+  .mat-expansion-panel-header {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .mat-expansion-panel-body {
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+}
+
+.panel-title,
+.root-link span {
+  margin: 0 !important;
+  padding-left: 16px;
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+
+  &.active {
+    font-weight: 700;
+    color: var(--primary);
+  }
+}
+
+.path-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.route-link {
+  position: relative;
+  user-select: none;
+  display: flex;
+  padding: 8px 0;
+  font-size: 14px;
+  cursor: pointer;
+
+  span {
+    margin-left: 24px;
+  }
+
+  &.route-active {
+    span {
+      z-index: 0;
+      font-family: Roboto, sans-serif;
+      color: #fff;
+    }
+  }
+}
+
+.route-active::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 100px 0 0 100px;
+  width: calc(100%);
+  height: 100%;
+  background-color: #308aedcc;
+  content: '';
+}
