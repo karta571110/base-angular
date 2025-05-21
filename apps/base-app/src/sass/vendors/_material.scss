@@ -2,6 +2,17 @@
 @include mat.elevation-classes;
 @include mat.app-background;
 
+html {
+  color-scheme: light dark;
+  @include mat.theme(
+    (
+      color: mat.$azure-palette,
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
 // $primary: mat.define-palette(mat.$indigo-palette, 500);
 // $accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 // $theme: mat.define-light-theme(
