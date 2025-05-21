@@ -20,7 +20,8 @@
       //寫成絕對路徑可以準確找到檔案
       "@common/sdk/form": ["libs/common/sdk/form/index.ts"],
       "@common/sdk/i18n": ["libs/common/sdk/i18n/index.ts"],
-      "@common/sdk/ui": ["libs/common/sdk/ui/index.ts"]
+      "@common/sdk/ui": ["libs/common/sdk/ui/index.ts"],
+      "@common/sdk/material": ["libs/common/sdk/material/index.ts"]
     },
     "types": []
   }
