@@ -1,5 +1,6 @@
 // Public API Surface of sdk
 
+export * from './lib/constants';
 export * from './lib/directives';
 export * from './lib/interceptors';
 export * from './lib/models';

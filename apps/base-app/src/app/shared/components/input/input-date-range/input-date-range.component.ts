@@ -1,12 +1,14 @@
 import { DOCUMENT } from '@angular/common';
 import {
   Component,
+  DestroyRef,
   OnDestroy,
   OnInit,
   Renderer2,
   inject,
   input,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { provideDateFnsAdapter } from '@angular/material-date-fns-adapter';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
@@ -15,30 +17,20 @@ import {
   MatCalendarView,
   MatDatepickerModule,
 } from '@angular/material/datepicker';
+import { locale } from '@common/sdk';
 import { ControlDirective, controlDirectiveProvider } from '@common/sdk/form';
 import { TranslocoService } from '@jsverse/transloco';
-import { Locale, enUS, zhCN, zhTW } from 'date-fns/locale';
 import isNull from 'lodash-es/isNull';
-import { Subscription } from 'rxjs/internal/Subscription';
-import { ValidateMessageComponent } from '../../validate-message/validate-message.component';
+import { take } from 'rxjs/internal/operators/take';
 import { BaseInputComponent } from '../base-input';
 import { CustomDateRange } from './model';
-const locale: Record<string, Locale> = {
-  zh: zhTW,
-  cn: zhCN,
-  en: enUS,
-};
 
 @Component({
   selector: 'app-input-date-range',
   templateUrl: './input-date-range.component.html',
   styleUrls: ['./input-date-range.component.scss'],
-  imports: [
-    ReactiveFormsModule,
-    MatDatepickerModule,
-    ControlDirective,
-    ValidateMessageComponent,
-  ],
+  standalone: true,
+  imports: [ReactiveFormsModule, MatDatepickerModule],
   hostDirectives: [controlDirectiveProvider],
   providers: [
     provideDateFnsAdapter({
@@ -82,19 +74,13 @@ export class InputDateRangeComponent
     ControlDirective<CustomDateRange, FormControl<CustomDateRange>>
   );
 
-  private _dateRangeGroupValueChange: Subscription | null = null;
-
   private _dateClass = 'input-date-range';
 
   private _changeMonthBtnListen: (() => void) | null = null;
 
   private _dateAdapter = inject(DateAdapter);
 
-  private _changeLanguage = inject(TranslocoService).langChanges$.subscribe(
-    lang => {
-      this._dateAdapter.setLocale(locale[lang]);
-    }
-  );
+  private _destroyRef = inject(DestroyRef);
 
   constructor() {
     super();
@@ -102,6 +88,11 @@ export class InputDateRangeComponent
       start: new Date(),
       end: new Date(),
     });
+    inject(TranslocoService)
+      .langChanges$.pipe(takeUntilDestroyed())
+      .subscribe(lang => {
+        this._dateAdapter.setLocale(locale[lang]);
+      });
   }
 
   ngOnInit(): void {
@@ -109,15 +100,22 @@ export class InputDateRangeComponent
       this.control = this._controlDirective.control;
       const control = this.control;
 
+      control.valueChanges
+        .pipe(takeUntilDestroyed(this._destroyRef), take(1))
+        .subscribe(e => {
+          this.dateRangeGroup.setValue({
+            start: e.start,
+            end: e.end,
+          });
+        });
       this.dateRangeGroup.setValue({
         start: control.value.start,
         end: control.value.end,
       });
-      this._dateRangeGroupValueChange =
-        this.dateRangeGroup.valueChanges.subscribe(({ start, end }) => {
+      this.dateRangeGroup.valueChanges
+        .pipe(takeUntilDestroyed(this._destroyRef))
+        .subscribe(({ start, end }) => {
           if (!isNull(this.control)) {
-            console.log(start, end);
-            this.control.value;
             this.control.setValue({
               start: start ?? null,
               end: end ?? null,
@@ -128,13 +126,9 @@ export class InputDateRangeComponent
   }
 
   ngOnDestroy(): void {
-    if (!isNull(this._dateRangeGroupValueChange)) {
-      this._dateRangeGroupValueChange.unsubscribe();
-    }
     if (!isNull(this._changeMonthBtnListen)) {
       this._changeMonthBtnListen();
     }
-    this._changeLanguage.unsubscribe();
   }
 
   protected dateClass(): MatCalendarCellCssClasses {
