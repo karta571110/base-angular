@@ -1,0 +1,38 @@
+form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+input {
+  border: solid 1px #d9d9d9;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  text-align: center;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.meridian {
+  margin-right: 8px;
+
+  div {
+    font-size: 16px;
+  }
+}
+
+.time-picker {
+  display: flex;
+  flex-direction: column;
+}
+
+app-button {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,85 @@
+:host {
+  flex-grow: 1;
+}
+
+::ng-deep mat-datepicker-content:has(.input-date-button) {
+  mat-month-view {
+    .mat-calendar-body-cell-content {
+      opacity: 0;
+
+      &.render-finish {
+        opacity: 1;
+        transition-duration: 0ms;
+        transition-property: opacity;
+      }
+    }
+  }
+
+  .mat-datepicker-actions {
+    justify-content: center !important;
+  }
+
+  .in-range,
+  .start-day {
+    background-color: #308aed30;
+  }
+
+  .start-day {
+    border-radius: 50% 0 0 50%;
+  }
+
+  .end-day {
+    border-radius: 0 50% 50% 0;
+  }
+
+  tr {
+    border-bottom: solid 1px transparent;
+  }
+}
+
+::ng-deep mat-datepicker-content {
+  .input-date-button.need-mark {
+    .mat-calendar-body-cell-content {
+      color: var(
+        --mat-datepicker-calendar-date-selected-state-text-color,
+        var(--mat-sys-on-primary)
+      );
+      background-color: var(
+        --mat-datepicker-calendar-date-selected-state-background-color,
+        var(--mat-sys-primary)
+      );
+    }
+  }
+}
+
+.input-container {
+  position: relative;
+}
+
+input {
+  font-size: 14px;
+  font-family: Roboto, sans-serif;
+
+  &::placeholder {
+    font-size: 14px;
+    font-family: Roboto, sans-serif;
+    color: var(--placeholder-color);
+    opacity: 1; /* Firefox */
+  }
+}
+
+app-button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  border: unset;
+  padding: 0;
+  color: var(--label-color);
+  background-color: transparent;
+  cursor: pointer;
+  transform: translate(-100%, -50%);
+
+  span {
+    font-size: 16px;
+  }
+}

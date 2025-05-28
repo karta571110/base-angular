@@ -1,27 +1,20 @@
 <div class="label">{{ label() }}</div>
-<div class="input-container">
-  <mat-date-range-input
-    [formGroup]="dateRangeGroup"
-    [rangePicker]="datePicker"
-    [comparisonStart]="dateRangeGroup.value.start!"
-    [comparisonEnd]="dateRangeGroup.value.end!">
-    <input
-      matStartDate
-      [placeholder]="startDatePlaceholder()"
-      formControlName="start" />
-    <input
-      matEndDate
-      [placeholder]="endDatePlaceholder()"
-      formControlName="end" />
-    <mat-date-range-picker
-      #datePicker
-      [dateClass]="dateClass.bind(this)"
-      (opened)="openCalendar()"
-      (closed)="closeCalendar()"
-      (viewChanged)="viewChange($event)">
-    </mat-date-range-picker>
-  </mat-date-range-input>
-  <button type="button" (click)="datePicker.open()">
-    <span class="material-symbols-rounded"> calendar_month </span>
-  </button>
+<div [formGroup]="dateRangeGroup" class="input-date-container">
+  @if (startValue && endValue) {
+    <app-input-date
+      [config]="{
+        useTimePicker: useTimePicker(),
+        max: endValue(),
+        dateRangeRole: 'start',
+      }"
+      [formControlName]="startDateFormControlName()"></app-input-date>
+    ~
+    <app-input-date
+      [formControlName]="endDateFormControlName()"
+      [config]="{
+        useTimePicker: useTimePicker(),
+        min: startValue(),
+        dateRangeRole: 'end',
+      }"></app-input-date>
+  }
 </div>

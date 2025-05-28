@@ -1,0 +1,35 @@
+<div class="input-container">
+  <div class="label">{{ label() }}</div>
+  <input
+    [formControl]="dateControl"
+    [matDatepicker]="datePicker"
+    [max]="maxView()"
+    [min]="minView()"
+    [placeholder]="placeholder()"
+    (dateChange)="dateChange()" />
+  <app-button
+    [config]="{
+      buttonType: 'no-style',
+      iconName: 'calendar_month',
+      iconConfig: {
+        size: '16px',
+      },
+    }"
+    (onclick)="datePicker.open()"></app-button>
+</div>
+
+<mat-datepicker
+  #datePicker
+  commonViewContainerRef
+  [dateClass]="dateClass.bind(this)"
+  (monthSelected)="monthSelected()"
+  (opened)="openCalendar()"
+  (closed)="closeCalendar(datePicker)"
+  (viewChanged)="viewChange($event)">
+  @if (defaultConfig().useTimePicker) {
+    <mat-datepicker-actions>
+      <app-input-time-picker
+        [formControl]="timerControl"></app-input-time-picker>
+    </mat-datepicker-actions>
+  }
+</mat-datepicker>

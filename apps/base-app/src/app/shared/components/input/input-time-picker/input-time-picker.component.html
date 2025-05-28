@@ -1,0 +1,63 @@
+@let config = defaultConfig();
+
+<form [formGroup]="timePickerForm">
+  @if (config.enableMeridian) {
+    <app-button
+      class="meridian"
+      [config]="{
+        type: 'button',
+        buttonType: 'no-style',
+      }"
+      (onclick)="changeMeridian()">
+      <div>
+        {{ meridianName() }}
+      </div>
+    </app-button>
+  }
+  @if (config.useHour) {
+    <ng-container
+      [ngTemplateOutlet]="inputTemplate"
+      [ngTemplateOutletContext]="{ formControlName: 'hour' }"></ng-container>
+  }
+  ：
+  @if (config.useMinute) {
+    <ng-container
+      [ngTemplateOutlet]="inputTemplate"
+      [ngTemplateOutletContext]="{ formControlName: 'minute' }"></ng-container>
+  }
+  ：
+  @if (config.useSecond) {
+    <ng-container
+      [ngTemplateOutlet]="inputTemplate"
+      [ngTemplateOutletContext]="{ formControlName: 'second' }"></ng-container>
+  }
+
+  <ng-template
+    #inputTemplate
+    [commonDefineDataType]="inputTemplateType"
+    let-formControlName="formControlName">
+    <div class="time-picker">
+      <app-button
+        [config]="{
+          type: 'button',
+          buttonType: 'no-style',
+          iconName: 'keyboard_arrow_up',
+        }"
+        (onclick)="plusValue(formControlName)">
+      </app-button>
+      <input
+        [formControlName]="formControlName"
+        type="text"
+        (input)="onInput($event)"
+        (blur)="inputBlur(formControlName)" />
+      <app-button
+        [config]="{
+          type: 'button',
+          buttonType: 'no-style',
+          iconName: 'keyboard_arrow_down',
+        }"
+        (onclick)="minusValue(formControlName)">
+      </app-button>
+    </div>
+  </ng-template>
+</form>
