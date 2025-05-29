@@ -1,5 +1,4 @@
-import { DOCUMENT } from '@angular/common';
-import { inject, Injectable, OnDestroy, signal } from '@angular/core';
+import { inject, Injectable, OnDestroy, signal, DOCUMENT } from '@angular/core';
 import isNull from 'lodash-es/isNull';
 import { from } from 'rxjs/internal/observable/from';
 

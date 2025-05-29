@@ -2,7 +2,7 @@ import {
   CSP_NONCE,
   inject,
   provideAppInitializer,
-  provideExperimentalZonelessChangeDetection,
+  provideZonelessChangeDetection,
   type ApplicationConfig,
 } from '@angular/core';
 import { provideRouter, type Routes } from '@angular/router';
@@ -109,7 +109,7 @@ const routes: Routes = [
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideExperimentalZonelessChangeDetection(),
+    provideZonelessChangeDetection(),
     provideAnimations(),
     provideHttpClient(withInterceptors([loaderInterceptor])),
     provideRouter(routes),

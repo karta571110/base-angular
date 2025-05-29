@@ -1,4 +1,3 @@
-import { DOCUMENT } from '@angular/common';
 import {
   Component,
   computed,
@@ -10,6 +9,7 @@ import {
   Renderer2,
   runInInjectionContext,
   viewChild,
+  DOCUMENT,
 } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
