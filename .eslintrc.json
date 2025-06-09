@@ -433,7 +433,8 @@
             "parser": "angular",
             "singleQuote": true
           }
-        ]
+        ],
+        "@angular-eslint/component-class-suffix": "off"
       }
     }
   ],
