@@ -44,7 +44,7 @@
     "date-fns": "^3.6.0",
     "fuse.js": "^7.1.0",
     "lodash-es": "^4.17.21",
-    "material-symbols": "^0.25.1",
+    "material-symbols": "^0.31.8",
     "rxjs": "~7.5.0",
     "swiper": "^11.1.14",
     "tslib": "^2.3.0",
