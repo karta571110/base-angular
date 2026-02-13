@@ -12,7 +12,7 @@ COPY . /app
 
 RUN npx ng build base-app
 
-FROM nginx:1.27.5-alpine
+FROM nginx:1.29.5-alpine
 
 COPY --from=build-step /app/dist/base-app/base/browser /usr/share/nginx/html/base
 
